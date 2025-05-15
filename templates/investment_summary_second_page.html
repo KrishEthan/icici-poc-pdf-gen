@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Summary</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .dashboard {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .header {
+            position: relative;
+            height: 60px;
+        }
+        .header-title {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #222;
+        }
+        .header-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 60px;
+            width: 100%;
+            background: linear-gradient(to right, #fff 20%, #ff6600 60%, #ff3300);
+            z-index: -1;
+        }
+        .bank-logo {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .bank-subtitle {
+            position: absolute;
+            right: 20px;
+            top: 35px;
+            color: #fff;
+            font-size: 14px;
+        }
+        .assets-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            margin: 0 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .assets-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-color: #8c6239;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .assets-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th {
+            background-color: #f2f2f2;
+            padding: 8px 15px;
+            text-align: right;
+            font-weight: normal;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+        }
+        table th:first-child {
+            text-align: left;
+            padding-left: 20px;
+        }
+        table td {
+            padding: 8px 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        table td:first-child {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .category-row {
+            background-color: #eee;
+            font-weight: bold;
+        }
+        .subcategory-row {
+            background-color: #fff;
+        }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 100px;
+            color: rgba(200, 200, 200, 0.2);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header with title and bank logo -->
+        <div class="header">
+            <div class="header-title">Investment Summary</div>
+            <div class="header-image"></div>
+            <div class="bank-logo">ICICI Bank</div>
+            <div class="bank-subtitle">Private Banking</div>
+        </div>
+        <div class="watermark">ETHAN</div>
+        <!-- Assets Section -->
+        <div class="assets-header">
+            <div class="assets-title">Assets</div>
+        </div>
+        <!-- Investment Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Particulars</th>
+                    <th>Investment Amount</th>
+                    <th>Holding Cost (₹)</th>
+                    <th>Current Value (₹)</th>
+                    <th>IRR Since Inception (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for section in investment_data %}
+                    <tr class="category-row">
+                        <td>{{ section.category }}</td>
+                        <td>{{ section.investment_amount }}</td>
+                        <td>{{ section.holding_cost }}</td>
+                        <td>{{ section.current_value }}</td>
+                        <td>{{ section.irr }}</td>
+                    </tr>
+                    {% for sub in section.subcategories %}
+                        <tr class="subcategory-row">
+                            <td>{{ sub.particular }}</td>
+                            <td>{{ sub.investment_amount }}</td>
+                            <td>{{ sub.holding_cost }}</td>
+                            <td>{{ sub.current_value }}</td>
+                            <td>{{ sub.irr }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html> 

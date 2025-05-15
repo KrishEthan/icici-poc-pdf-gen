@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Executive Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 30px 20px 40px 20px;
+            position: relative;
+        }
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title .icon {
+            font-size: 22px;
+            margin-right: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        th, td {
+            padding: 8px 10px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        th:first-child, td:first-child {
+            text-align: left;
+        }
+        th {
+            background: #f2f2f2;
+            color: #666;
+            font-weight: normal;
+        }
+        .category-row {
+            background: #f9f9f9;
+            font-weight: bold;
+        }
+        .total-row {
+            background: #f2f2f2;
+            font-weight: bold;
+        }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 60px;
+            color: rgba(200, 200, 200, 0.18);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Executive Summary</div>
+        <div class="flex-row">
+            <!-- Assets Column -->
+            <div class="column">
+                <div class="section-title">Assets</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particulars</th>
+                            <th>Holding Cost (₹)</th>
+                            <th>Current Value (₹)</th>
+                            <th>IRR Since Inception (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in assets %}
+                        <tr class="{% if row.particular == 'Total Assets' %}total-row{% endif %}">
+                            <td>{{ row.particular }}</td>
+                            <td>{{ row.holding_cost or '' }}</td>
+                            <td>{{ row.current_value or '' }}</td>
+                            <td>{{ row.irr or '' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- Liabilities Column -->
+            <div class="column">
+                <div class="section-title">Liabilities</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particulars</th>
+                            <th>Loan/Credit Limit</th>
+                            <th>Outstanding Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in liabilities %}
+                        <tr class="{% if row.particular == 'Total Liabilities' %}total-row{% endif %}">
+                            <td>{{ row.particular }}</td>
+                            <td>{{ row.loan_credit_limit or '' }}</td>
+                            <td>{{ row.outstanding_amount or '' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="watermark">ETHAN</div>
+    </div>
+</body>
+</html> 
