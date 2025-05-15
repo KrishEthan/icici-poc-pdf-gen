@@ -437,12 +437,6 @@ investment_summary_first_page_data = {
 
 # Test all endpoints
 endpoints = [
-    # "/generate-report-max",
-    # "/generate-report-max-threaded",
-    # "/generate-report-min",
-    # "/generate-report-min-threaded",
-    # "/generate-investment-summary-first-page",
-    # "/generate-investment-summary-second-page",
     "/generate-investment-summary-report"
 ]
 
