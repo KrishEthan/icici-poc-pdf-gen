@@ -29,7 +29,7 @@ class ReportGenerator:
             'margin-left': '20mm',
             'encoding': 'UTF-8',
             'no-outline': None,
-            'enable-local-file-access': None,
+            'enable-local-file-access': True,
             'disable-smart-shrinking': None,
             'quiet': None,
             'print-media-type': None,
@@ -38,7 +38,7 @@ class ReportGenerator:
             'enable-javascript': None,
             'javascript-delay': '500',  # Longer delay for better rendering
             'no-stop-slow-scripts': None,
-            'debug-javascript': None,
+            'debug-javascript': True,
             'load-error-handling': 'ignore',
             'load-media-error-handling': 'ignore'
         }
@@ -52,13 +52,13 @@ class ReportGenerator:
             'margin-left': '20mm',
             'encoding': 'UTF-8',
             'no-outline': None,
-            'enable-local-file-access': None,
+            'enable-local-file-access': True,
             'disable-smart-shrinking': None,
             'quiet': None,
             'print-media-type': None,
             'dpi': 72,  # Minimum DPI
             'image-quality': 30,  # Minimum image quality
-            'enable-javascript': None,
+            'enable-javascript': True,
             'javascript-delay': '50',  # Minimum delay
             'no-stop-slow-scripts': None,
             'debug-javascript': None,
@@ -70,19 +70,21 @@ class ReportGenerator:
         # Original optimized settings (keeping for backward compatibility)
         self.pdf_options = {
             'page-size': 'A4',
-            'margin-top': '20mm',
-            'margin-right': '20mm',
-            'margin-bottom': '20mm',
-            'margin-left': '20mm',
+            'orientation': 'Landscape',
+            # 'zoom': '0.75',  # Scale down content
+            'margin-top': '10mm',
+            'margin-right': '10mm',
+            'margin-bottom': '10mm',
+            'margin-left': '10mm',
             'encoding': 'UTF-8',
             'no-outline': None,
-            'enable-local-file-access': None,
+            'enable-local-file-access': True,
             'disable-smart-shrinking': None,
             'quiet': None,
             'print-media-type': None,
             'dpi': 100,
             'image-quality': 60,
-            'enable-javascript': None,
+            'enable-javascript': True,
             'javascript-delay': '100',
             'no-stop-slow-scripts': None,
             'debug-javascript': None,

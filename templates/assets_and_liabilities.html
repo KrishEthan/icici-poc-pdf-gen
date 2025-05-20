@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+      /* Yellow header rows */
+      .header-yellow {
+        background-color: #ffd591;
+        font-weight: bold;
+      }
+      /* Pink header rows */
+      .header-pink {
+        background-color: #ffa39e;
+        font-weight: thin;
+      }
+      th,
+      td {
+        border: 1px solid #444444;
+        padding: 8px 12px;
+        text-align: left;
+      }
+      /* For merged cells in header */
+      .merged {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr class="header-yellow">
+        <th colspan="5">Assets</th>
+      </tr>
+      <tr class="header-pink">
+        <th>Particulars</th>
+        <th>Premium Account</th>
+        <th>Sum Assured</th>
+        <th>Valuation</th>
+        <th>Earliest Due Date</th>
+      </tr>
+      {% for row in assets %}
+      <tr class="{% if row.particular == 'Total Assets' %}total-row{% endif %}">
+        <td>{{ row.particular }}</td>
+        <td>{{ row.premium_account or '' }}</td>
+        <td>{{ row.sum_assured or '' }}</td>
+        <td>{{ row.valuation or '' }}</td>
+        <td>{{ row.due_date or '' }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <table>
+      <tr class="header-yellow">
+        <th colspan="5">Liabilities</th>
+      </tr>
+      <tr class="header-pink">
+        <th>Particulars</th>
+        <th>Available Credit Limit</th>
+        <th>Total credit limit</th>
+        <th>Minimum Amount Due</th>
+        <th>Total Amount Due</th>
+      </tr>
+      {% for row in liabilities.credit_cards %}
+      <tr class="{% if row.particular == 'Total Assets' %}total-row{% endif %}">
+        <td>{{ row.particular }}</td>
+        <td>{{ row.available_credit_limit or '' }}</td>
+        <td>{{ row.total_credit_limit or '' }}</td>
+        <td>{{ row.minimum_amount_due or '' }}</td>
+        <td>{{ row.total_amout_due or '' }}</td>
+      </tr>
+      {% endfor %}
+
+      <tr class="header-pink">
+        <th>Particulars</th>
+        <th>Loan Amount</th>
+        <th>EMI</th>
+        <th>Outstanding</th>
+        <th>Maximum Tenure</th>
+      </tr>
+      <tr>
+         {% for row in liabilities.loans %}
+      <tr class="{% if row.particular == 'Total Assets' %}total-row{% endif %}">
+        <td>{{ row.particular }}</td>
+        <td>{{ row.loan_amount or '' }}</td>
+        <td>{{ row.emi or '' }}</td>
+        <td>{{ row.outstanding or '' }}</td>
+        <td>{{ row.maximum_tenure or '' }}</td>
+      </tr>
+      {% endfor %}
+      </tr>
+
+      <tr class="header-pink">
+        <th>Particulars</th>
+        <th>Current Value</th>
+        <!-- <th colspan="2"></th> -->
+      </tr>
+      <tr>
+        <!-- <td colspan="2">Bank Balance</td>
+        <td></td>
+        <td colspan="2"></td> -->
+      {% for row in bank_balance %}
+      <tr class="{% if row.particular == 'Total Assets' %}total-row{% endif %}">
+        <td>{{ row.particular }}</td>
+        <td>{{ row.current_value or '' }}</td>
+      </tr>
+      {% endfor %}
+      </tr>
+    </table>
+  </body>
+</html>
