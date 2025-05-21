@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credit Cards</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+    }
+
+    .header-banner {
+      background: linear-gradient(90deg, #EB781B 33%, #C12F29 100%);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 30px;
+    }
+
+    .icici-logo {
+      height: 35px;
+    }
+
+    .private-banking {
+      font-size: 13px;
+      color: #AD8B00;
+      text-align: right;
+      padding: 5px 35px;
+      font-weight: 500;
+      border-bottom: 2px solid #EB781B;
+    }
+
+    .container {
+      padding: 30px 40px;
+    }
+
+    .summary-box {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      background: white;
+      overflow-x: auto;
+    }
+
+    .summary-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #000;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #000;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 1000px;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+    }
+
+    th {
+      background-color: #f8f8f8;
+      color: #999;
+      font-weight: 500;
+    }
+
+    .bold-row {
+      font-weight: bold;
+      background-color: #f2f2f2;
+    }
+
+    .footer-logo {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-banner">
+    <img class="icici-logo" src="/src/icons/image (5).png" alt="ICICI Logo" />
+  </div>
+  <div class="private-banking">Private Banking</div>
+
+  <div class="container">
+    <div class="summary-box">
+      <div class="summary-title">Credit Cards</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Card Type</th>
+            <th>Payment Due Date</th>
+            <th>Credit Card Number</th>
+            <th>Credit Limit</th>
+            <th>Cash Limit</th>
+            <th>Available Credit Limit</th>
+            <th>Minimum Amount Due</th>
+            <th>Total Amount Due</th>
+          </tr>
+        </thead>
+       <tbody>
+  {% for card in credit_cards %}
+      <tr>
+        <td>{{ card.card_type }}</td>
+        <td>{{ card.payment_due_date }}</td>
+        <td>{{ card.credit_card_number }}</td>
+        <td>{{ card.credit_limit }}</td>
+        <td>{{ card.cash_limit }}</td>
+        <td>{{ card.available_credit_limit }}</td>
+        <td>{{ card.minimum_amount_due }}</td>
+        <td>{{ card.total_amount_due }}</td>
+      </tr>
+  {% endfor %}
+  
+{% if total %}
+<tr class="bold-row">
+  <td>Total</td>
+  <td colspan="2"></td>
+  <td>{{ total.credit_limit }}</td>
+  <td></td>
+  <td>{{ total.available_credit_limit }}</td>
+  <td>{{ total.minimum_amount_due }}</td>
+  <td>{{ total.total_amount_due }}</td>
+</tr>
+{% endif %}
+</tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <img class="footer-logo" src="/src/icons/image1.png" alt="Logo" />
+</body>
+</html>
