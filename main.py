@@ -10,6 +10,7 @@ from utils import ReportGenerator
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from PyPDF2 import PdfMerger
+from db import get_investment_summary_first_page, get_all_investment_summary_data
  
 # Create necessary directories
 TEMPLATES_DIR = Path("templates")
@@ -353,12 +354,23 @@ class InvestmentSummaryReportRequest(BaseModel):
     nineteenth_page_data: PortfolioPageData
     twenteeth_page_data: TwenteethPageData
  
-@app.post("/generate-investment-summary-report")
+@app.post("/generate-investment-summary-report", response_model=None)
 async def generate_investment_summary_report(
-    data: InvestmentSummaryReportRequest,
     background_tasks: BackgroundTasks
 ):
     try:
+        # Get all data from database
+        data = get_all_investment_summary_data()
+        print("Debug - Raw data structure:", data.keys())
+        
+        # Convert to Pydantic model
+        try:
+            report_data = InvestmentSummaryReportRequest(**data)
+        except Exception as model_error:
+            print("Debug - Model validation error:", str(model_error))
+            print("Debug - Data structure:", {k: type(v) for k, v in data.items()})
+            raise
+        
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         first_page_filename = f"investment_summary_first_page_{timestamp}.pdf"
         second_page_filename = f"investment_summary_second_page_{timestamp}.pdf"
@@ -376,10 +388,10 @@ async def generate_investment_summary_report(
         fourteenth_page_filename = f"credit_card_summary_{timestamp}.pdf"
         fifteenth_page_filename = f"loan_summary_{timestamp}.pdf"
         eighteenth_page_filename = f"client_code_level_summary_{timestamp}.pdf"
-        nineteenth_page_filename = f"porfolio_analysis_{timestamp}.pdf"
-        twenteeth_page_filename = f"debt_analysis_summary_{timestamp}.pdf"
+        nineteenth_page_filename = f"portfolio_analysis_{timestamp}.pdf"
+        twentieth_page_filename = f"debt_analysis_summary_{timestamp}.pdf"
         merged_filename = f"investment_summary_report_{timestamp}.pdf"
- 
+
         loop = asyncio.get_event_loop()
         with ThreadPoolExecutor(max_workers=16) as pool:
             # Generate both PDFs in parallel
@@ -387,7 +399,7 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "investment_summary_first_page.html",
-                    {"investment_data": data.first_page_data.investment_data},
+                    {"investment_data": report_data.first_page_data.investment_data},
                     first_page_filename
                 )
             )
@@ -395,7 +407,7 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "investment_summary_second_page.html",
-                    {"investment_data": data.second_page_data.investment_data},
+                    {"investment_data": report_data.second_page_data.investment_data},
                     second_page_filename
                 )
             )
@@ -403,7 +415,7 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "assets_and_liabilities.html",
-                    {"assets": data.fourth_page_data.assets, "liabilities": data.fourth_page_data.liabilities, "bank_balance": data.fourth_page_data.bank_balance},
+                    {"assets": report_data.fourth_page_data.assets, "liabilities": report_data.fourth_page_data.liabilities, "bank_balance": report_data.fourth_page_data.bank_balance},
                     fourth_page_filename
                 )  
             )
@@ -411,15 +423,15 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "executive_summary_page.html",
-                    {"assets": data.third_page_data.assets, "liabilities": data.third_page_data.liabilities},
+                    {"assets": report_data.third_page_data.assets, "liabilities": report_data.third_page_data.liabilities},
                     third_page_filename
                 )  
             )
             fifth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "debt_mutual_fund_instrument_level_summary.html",
                 {
-                    "investment_details": data.fifth_page_data.investment_details,
-                    "total_investment": data.fifth_page_data.total_investment
+                    "investment_details": report_data.fifth_page_data.investment_details,
+                    "total_investment": report_data.fifth_page_data.total_investment
                 },
                 fifth_page_filename
             ))
@@ -427,15 +439,15 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "equity_mutual_fund_instrument_level_summary.html",
-                    {"data": data.sixth_page_data },
+                    {"data": report_data.sixth_page_data },
                     sixth_page_filename
                 )  
             )
             seventh_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "hybrid_mutual_fund_instrument_level_summary.html",
                 {
-                    "client_name": data.seventh_page_data.client_name,
-                    "multi_asset_allocation": data.seventh_page_data.multi_asset_allocation
+                    "client_name": report_data.seventh_page_data.client_name,
+                    "multi_asset_allocation": report_data.seventh_page_data.multi_asset_allocation
                 },
                 seventh_page_filename
             ))
@@ -443,14 +455,14 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "equity_PMS.html",
-                    {"data": data.eighth_page_data },
+                    {"data": report_data.eighth_page_data },
                     eighth_page_filename
                 )  
             )
             ninth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "equity_aif_instrumental_level_summary.html",
                 {
-                    "summary": data.ninth_page_data.summary
+                    "summary": report_data.ninth_page_data.summary
                 },
                 ninth_page_filename
             ))
@@ -458,7 +470,7 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "demat_stocks.html",
-                    {"data": data.tenth_page_data },
+                    {"data": report_data.tenth_page_data },
                     tenth_page_filename
                 )  
             )
@@ -466,14 +478,14 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "demat_MF.html",
-                    {"data": data.eleventh_page_data },
+                    {"data": report_data.eleventh_page_data },
                     eleventh_page_filename
                 )  
             )
             twelfth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "life_insurance.html",
                 {
-                    "policies": data.twelfth_page_data.policies
+                    "policies": report_data.twelfth_page_data.policies
                 },
                 twelfth_page_filename
             ))
@@ -481,50 +493,56 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "bank_account_balance.html",
-                    {"data": data.thirteenth_page_data },
+                    {"data": report_data.thirteenth_page_data },
                     thirteenth_page_filename
                 )  
             )
             fourteenth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                "credit_card_summary.html",
                 {
-              "credit_cards": data.fourteenth_page_data.credit_cards,
-               "total": data.fourteenth_page_data.total
+              "credit_cards": report_data.fourteenth_page_data.credit_cards,
+               "total": report_data.fourteenth_page_data.total
              },
                 fourteenth_page_filename
             ))
             fifteenth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "loans_summary.html",
                 {
-                "loans": data.fifteenth_page_data.loans,
-                "total": data.fifteenth_page_data.total
+                "loans": report_data.fifteenth_page_data.loans,
+                "total": report_data.fifteenth_page_data.total
                 },
                 fifteenth_page_filename
             ))
             eighteenth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "code_break_down_template.html",
                 {
-                    "clients": data.eighteenth_page_data,
+                    "clients": report_data.eighteenth_page_data,
                     "total": {
-                        "current_value": sum(float(client.current_value) for client in data.eighteenth_page_data),
-                        "investment_value": sum(float(client.investment_value) for client in data.eighteenth_page_data),
-                        "weightage": sum(float(client.weightage) for client in data.eighteenth_page_data),
-                        "total_gain_loss": sum(float(client.total_gain_loss) for client in data.eighteenth_page_data)
+                        "current_value": sum(float(client.current_value) for client in report_data.eighteenth_page_data),
+                        "investment_value": sum(float(client.investment_value) for client in report_data.eighteenth_page_data),
+                        "weightage": sum(float(client.weightage) for client in report_data.eighteenth_page_data),
+                        "total_gain_loss": sum(float(client.total_gain_loss) for client in report_data.eighteenth_page_data)
                     }
                 },
                 eighteenth_page_filename
             ))
-            nineteenth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
-                "portfolio_analysis.html",
-                {"data":data.nineteenth_page_data.investment_data},
-                nineteenth_page_filename
-            ))
-            twenteeth_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
-                "debt_analysis_summary.html",
-                {"debt_analysis_response": data.twenteeth_page_data.debt_analysis_response},
-                twenteeth_page_filename
-            ))
-            first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path = await asyncio.gather(first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future)
+            nineteenth_page_future = loop.run_in_executor(
+                pool,
+                lambda: report_generator.generate_pdf(
+                    "portfolio_analysis.html",
+                    {"investment_data": report_data.nineteenth_page_data.investment_data},
+                    nineteenth_page_filename
+                )
+            )
+            twentieth_page_future = loop.run_in_executor(
+                pool,
+                lambda: report_generator.generate_pdf(
+                    "debt_analysis_summary.html",
+                    {"debt_analysis_response": report_data.twenteeth_page_data.debt_analysis_response},
+                    twentieth_page_filename
+                )
+            )
+            first_page_path, second_page_path, fourth_page_path, third_page_path, sixth_page_path, eighth_page_path, tenth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path, seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twentieth_page_path = await asyncio.gather(first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twentieth_page_future)
        
         # Merge PDFs
         merger = PdfMerger()
@@ -533,11 +551,11 @@ async def generate_investment_summary_report(
         merger.append(str(fourth_page_path))
         merger.append(str(third_page_path))
         merger.append(str(fifth_page_path))
-        merger.append(str(six_page_path))
+        merger.append(str(sixth_page_path))
         merger.append(str(seventh_page_path))
         merger.append(str(eighth_page_path))
         merger.append(str(ninth_page_path))
-        merger.append(str(tenthth_page_path))
+        merger.append(str(tenth_page_path))
         merger.append(str(eleventh_page_path))
         merger.append(str(twelfth_page_path))
         merger.append(str(thirteenth_page_path))
@@ -545,7 +563,7 @@ async def generate_investment_summary_report(
         merger.append(str(fifteenth_page_path))
         merger.append(str(eighteenth_page_path))
         merger.append(str(nineteenth_page_path))
-        merger.append(str(twenteeth_page_path))
+        merger.append(str(twentieth_page_path))
         merged_path = OUTPUT_DIR / merged_filename
         with open(merged_path, "wb") as fout:
             merger.write(fout)
@@ -553,25 +571,13 @@ async def generate_investment_summary_report(
  
         # Schedule cleanup
         background_tasks.add_task(report_generator.cleanup_old_files)
-        # Optionally, also cleanup the intermediate PDFs
-        background_tasks.add_task(lambda: Path(first_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(second_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(fourth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(third_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(fifth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(six_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(seventh_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(eighth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(ninth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(tenthth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(eleventh_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(twelfth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(thirteenth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(fourteenth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(fifteenth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(eighteenth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(nineteenth_page_path).unlink(missing_ok=True))
-        background_tasks.add_task(lambda: Path(twenteeth_page_path).unlink(missing_ok=True))
+        # Cleanup intermediate PDFs
+        for path in [first_page_path, second_page_path, fourth_page_path, third_page_path,
+                    fifth_page_path, sixth_page_path, seventh_page_path, eighth_page_path,
+                    ninth_page_path, tenth_page_path, eleventh_page_path, twelfth_page_path,
+                    thirteenth_page_path, fourteenth_page_path, fifteenth_page_path,
+                    eighteenth_page_path, nineteenth_page_path, twentieth_page_path]:
+            background_tasks.add_task(lambda p=path: Path(p).unlink(missing_ok=True))
  
         return FileResponse(
             merged_path,
@@ -583,6 +589,15 @@ async def generate_investment_summary_report(
         print(f"Error generating merged investment summary report: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
  
+@app.get("/investment-summary-first-page")
+def investment_summary_first_page():
+    try:
+        data = get_investment_summary_first_page()
+        return {"data": data}
+    except Exception as e:
+        print(f"Error fetching investment summary first page: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+ 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8002, reload=True)
  

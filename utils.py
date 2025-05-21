@@ -94,8 +94,9 @@ class ReportGenerator:
         }
 
         # Explicitly set wkhtmltopdf path
-        self.config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
+        # self.config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
         # self.config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf") # macOS/Linux path
+        self.config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
 
         
         # Create thread pool for parallel processing
