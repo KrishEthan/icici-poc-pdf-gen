@@ -981,6 +981,214 @@ investment_summary_payload = {
             "outstanding": "13,11,410",
             "EMI": "13,000"
         }
+    },
+    "eighteenth_page_data": [
+        {
+            "name": "RITESH A BHAVSAR RITESH",
+            "risk_profile": "Aggressive",
+            "current_value": "1000000",
+            "investment_value": "1000000",
+            "weightage": "100",
+            "total_gain_loss": "1000000",
+            "current_asset_allocation": {
+                "debt": "10",
+                "equity": "20",
+                "others": "70"
+            },
+            "target_asset_allocation": {
+                "debt": "10",
+                "equity": "20",
+                "others": "70"
+            }
+        }
+    ],
+    "nineteenth_page_data": {
+        "investment_data": [
+            {
+                "category": "Dept",
+                "holdings_cost": "4999950",
+                "current_value": "9449950",
+                "holdings": "9449950",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "0",
+                "gain_or_lose_unrealized": "0",
+                "irr_since_interception": "439953",
+                "subcategories": [
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    },
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    }
+                ]
+            },
+            {
+                "category": "Equity",
+                "holdings_cost": "4999950",
+                "current_value": "9449950",
+                "holdings": "9449950",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "0",
+                "gain_or_lose_unrealized": "0",
+                "irr_since_interception": "439953",
+                "subcategories": [
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    },
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    }
+                ]
+            },
+            {
+                "category": "Hybrid",
+                "holdings_cost": "4999950",
+                "current_value": "9449950",
+                "holdings": "9449950",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "0",
+                "gain_or_lose_unrealized": "0",
+                "irr_since_interception": "439953",
+                "subcategories": [
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    },
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    }
+                ]
+            },
+            {
+                "category": "other_alternatives",
+                "holdings_cost": "4999950",
+                "current_value": "9449950",
+                "holdings": "9449950",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "0",
+                "gain_or_lose_unrealized": "0",
+                "irr_since_interception": "439953",
+                "subcategories": [
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    },
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    }
+                ]
+            },
+            {
+                "category": "ULIP",
+                "holdings_cost": "4999950",
+                "current_value": "9449950",
+                "holdings": "9449950",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "0",
+                "gain_or_lose_unrealized": "0",
+                "irr_since_interception": "439953",
+                "subcategories": [
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    },
+                    {
+                        "particulars": "Mutual Funds",
+                        "holdings_cost": "4999950",
+                        "current_value": "9449950",
+                        "holdings": "9449950",
+                        "gain_or_lose_realized": "0",
+                        "devident_or_interest": "0",
+                        "gain_or_lose_unrealized": "0",
+                        "irr_since_interception": "439953"
+                    }
+                ]
+            }
+        ]
+    },
+    "twenteeth_page_data": {
+        "debt_analysis_response": [
+            {
+                "particulars": "Corporate Bond A",
+                "holdings_cost": "1000000.0",
+                "current_value": "1050000.0",
+                "holdings": "10.0",
+                "gain_or_lose_realized": "50000.0",
+                "devident_or_interest": "30000.0",
+                "gain_or_lose_unrealized": "20000.0",
+                "irr": "7.5"
+            },
+            {
+                "particulars": "Government Bond B",
+                "holdings_cost": "500000",
+                "current_value": "510000.0",
+                "holdings": "5.0",
+                "gain_or_lose_realized": "10000.0",
+                "devident_or_interest": "15000.0",
+                "gain_or_lose_unrealized": "5000.0",
+                "irr": "6.0"
+            }
+        ]
     }
 }
 # Test all endpoints
@@ -1002,4 +1210,3 @@ for endpoint in endpoints:
     print(f"Error: {e}")
     print(f"Response: {response.text}")
     print(f"Status code: {response.status_code}")
-        
