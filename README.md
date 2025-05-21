@@ -22,20 +22,27 @@ project/
 └── utils.py            # Utility functions and report generator
 ```
 
+## JUST RUN
+
+`docker-compose up --build`
+
 ## Setup
 
 1. Create a virtual environment:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install fastapi uvicorn pydantic PyPDF2
 ```
 
 3. Run the application:
+
 ```bash
 python main.py
 ```
@@ -45,6 +52,7 @@ The server will start at `http://localhost:8000`
 ## API Endpoints
 
 ### Generate Investment Summary Report
+
 - **Endpoint**: `/generate-investment-summary-report`
 - **Method**: POST
 - **Request Body**: JSON with the following structure:
@@ -97,6 +105,7 @@ The server will start at `http://localhost:8000`
 ## How It Works
 
 1. **PDF Generation Process**:
+
    - The application receives data through the API endpoint
    - Creates separate PDFs for each page using HTML templates
    - Merges the PDFs into a single document
@@ -133,6 +142,7 @@ merger.append(str(new_page_path))
 ## Testing
 
 1. **API Testing**:
+
 ```python
 import requests
 import json
@@ -164,7 +174,8 @@ if response.status_code == 200:
 ```
 
 2. **Unit Testing**:
-Create test files in a `tests/` directory to test individual components:
+   Create test files in a `tests/` directory to test individual components:
+
 - Model validation
 - PDF generation
 - Data processing
@@ -172,6 +183,7 @@ Create test files in a `tests/` directory to test individual components:
 ## Error Handling
 
 The application includes error handling for:
+
 - Invalid data formats
 - PDF generation failures
 - File system operations
