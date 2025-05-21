@@ -55,7 +55,7 @@
       table td:last-child {
         border-right: none;
       }
-
+ 
       /* Specific styles for the asset allocation headers */
       .asset-allocation-header {
         text-align: center;
@@ -82,7 +82,7 @@
       .sub-header:last-child {
         border-right: none;
       }
-
+ 
       .text-right {
         text-align: right;
       }
@@ -119,7 +119,7 @@
   <body>
     <div class="dashboard">
       <div class="header">Client Code Level Breakup</div>
-
+ 
       <table>
         <thead>
           <tr>
@@ -165,16 +165,16 @@
               <td colspan="6"></td>
               <td colspan="3">
                   <div class="allocation-bar-container">
-                      <div class="allocation-bar-debt" style="width: {{ client.current_asset_allocation.debt }}%"></div>
-                      <div class="allocation-bar-equity" style="width: {{ client.current_asset_allocation.equity }}%"></div>
-                      <div class="allocation-bar-others" style="width: {{ client.current_asset_allocation.others }}%"></div>
+                      <div class="allocation-bar-debt" style="width: 100%"></div>{{ client.current_asset_allocation.debt }}</div>
+                      <div class="allocation-bar-equity" style="width: 100%"></div>{{ client.current_asset_allocation.equity }}></div>
+                      <div class="allocation-bar-others" style="width: 100%"></div>{{ client.current_asset_allocation.others }}></div>
                   </div>
               </td>
               <td colspan="3">
                   <div class="allocation-bar-container">
-                      <div class="allocation-bar-debt" style="width: {{ client.target_asset_allocation.debt }}%"></div>
-                      <div class="allocation-bar-equity" style="width: {{ client.target_asset_allocation.equity }}%"></div>
-                      <div class="allocation-bar-others" style="width: {{ client.target_asset_allocation.others }}%"></div>
+                      <div class="allocation-bar-debt" style="width: 100%"></div>{{ client.target_asset_allocation.debt }}</div>
+                      <div class="allocation-bar-equity" style="width: 100%"></div>{{ client.target_asset_allocation.equity }}</div>
+                      <div class="allocation-bar-others"style="width: 100%"></div>{{ client.target_asset_allocation.others }}</div>
                   </div>
               </td>
           </tr>
