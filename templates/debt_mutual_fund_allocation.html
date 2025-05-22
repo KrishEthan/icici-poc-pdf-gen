@@ -53,6 +53,17 @@
         background-color: #000;
         margin-bottom: 25px;
       }
+      .chart-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      canvas {
+        max-width: 300px;
+        max-height: 300px;
+        width: 300px;
+        height: 300px;
+      }
       table {
         border-collapse: collapse;
         width: 100%;
@@ -100,6 +111,13 @@
       <div class="report-box">
         <div class="title">Debt Mutual Fund Allocation</div>
         <div class="divider"></div>
+
+        <!-- Chart Section -->
+        <div class="chart-container">
+          <canvas id="donutChart"></canvas>
+        </div>
+
+        <!-- Table Section -->
         <table>
           <thead>
             <tr>
@@ -132,5 +150,29 @@
     </div>
 
     <img class="footer-logo" src="../assets/images/logo.png" alt="Logo" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("donutChart").getContext("2d");
+      new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          datasets: [
+            {
+              data: [25, 30, 20, 25],
+              backgroundColor: ["#C0392B", "#7F8C8D", "#D35400", "#17394d"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          cutout: "60%",
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: true },
+          },
+        },
+      });
+    </script>
   </body>
 </html>

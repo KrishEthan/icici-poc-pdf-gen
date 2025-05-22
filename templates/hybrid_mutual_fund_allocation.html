@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Debt Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hybrid Mutual Fund Allocation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
       body {
         margin: 0;
@@ -53,6 +54,15 @@
         background-color: #000;
         margin-bottom: 25px;
       }
+      .chart-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      canvas {
+        max-width: 300px;
+        max-height: 300px;
+      }
       table {
         border-collapse: collapse;
         width: 100%;
@@ -88,29 +98,34 @@
     </style>
   </head>
   <body>
-    <!-- Header Section -->
     <div class="header-banner">
       <img class="icici-logo" src="../assets/images/image.png" alt="ICICI Logo" />
     </div>
     <div class="private-banking">Private Banking</div>
     <div class="yellow-line"></div>
 
-    <!-- Content Box -->
     <div class="container">
       <div class="report-box">
         <div class="title">Hybrid Mutual Fund Allocation</div>
         <div class="divider"></div>
+
+        <!-- Chart Section -->
+        <div class="chart-container">
+          <canvas id="donutChart"></canvas>
+        </div>
+
+        <!-- Table Section -->
         <table>
           <thead>
             <tr>
-                <th>Mutual Fund</th>
-                <th>Holding Cost</th>
-                <th>Current Value</th>
-                <th>Holding%</th>
-                <th>Gain/Loss Realized(₹)</th>
-                <th>Dividend/Interest(₹)</th>
-                <th>Gain/Loss Unrealized(₹)</th>
-                <th>XIRR %</th>
+              <th>Mutual Fund</th>
+              <th>Holding Cost</th>
+              <th>Current Value</th>
+              <th>Holding%</th>
+              <th>Gain/Loss Realized(₹)</th>
+              <th>Dividend/Interest(₹)</th>
+              <th>Gain/Loss Unrealized(₹)</th>
+              <th>XIRR %</th>
             </tr>
           </thead>
           <tbody>
@@ -132,5 +147,29 @@
     </div>
 
     <img class="footer-logo" src="../assets/images/logo.png" alt="Logo" />
+
+    <script>
+      const ctx = document.getElementById("donutChart").getContext("2d");
+
+      new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          datasets: [
+            {
+              data: [25, 30, 20, 25],
+              backgroundColor: ["#C0392B", "#7F8C8D", "#D35400", "#17394d"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          cutout: "60%",
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: true },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
