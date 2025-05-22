@@ -934,6 +934,54 @@ investment_summary_payload = {
                 "xirr": "3.2"
             }
         ]
+    }, 
+    "twentytwo_page_data": {
+        "hybrid_analysis_response": [
+             {
+                "particulars": "Mutual Funds Equity",
+                "holdings_cost": "1000000.0",
+                "current_value": "1050000.0",
+                "holdings": "10.0",
+                "gain_or_lose_realized": "50000.0",
+                "devident_or_interest": "30000.0",
+                "gain_or_lose_unrealized": "20000.0",
+                "irr": "7.5"
+            },
+            {
+                "particulars": "Mutual Funds Debt",
+                "holdings_cost": "500000",
+                "current_value": "510000.0",
+                "holdings": "5.0",
+                "gain_or_lose_realized": "10000.0",
+                "devident_or_interest": "15000.0",
+                "gain_or_lose_unrealized": "5000.0",
+                "irr": "6.0"
+            }
+        ]
+    },
+    "twentythree_page_data": {
+        "hybrid_mutual_fund_allocation_response": [
+            {
+                "mutual_fund": "Banking and PSU",
+                "holdings_cost": "7,15,780",
+                "current_value": "11,79,579",
+                "holdings": "100",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "3.31",
+                "gain_or_lose_unrealized": "4,55,332",
+                "xirr": "55.3"
+            },
+            {
+                "mutual_fund": "Corporate Bond",
+                "holdings_cost": "11,79,579",
+                "current_value": "7,15,780",
+                "holdings": "61,739",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "3.55",
+                "gain_or_lose_unrealized": "61,739",
+                "xirr": "3.2"
+            }
+        ]
     }
 }
 
