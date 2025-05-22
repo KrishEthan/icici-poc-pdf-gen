@@ -390,6 +390,8 @@ async def generate_investment_summary_report(
 ):
     try:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        money_speak_page_filename = f"monet_speak_{timestamp}.pdf"
+        intro_page_filename = f"intro_page_{timestamp}.pdf"
         first_page_filename = f"investment_summary_first_page_{timestamp}.pdf"
         second_page_filename = f"investment_summary_second_page_{timestamp}.pdf"
         fourth_page_filename = f"assets_and_liabilities{timestamp}.pdf"
@@ -420,6 +422,19 @@ async def generate_investment_summary_report(
         loop = asyncio.get_event_loop()
         with ThreadPoolExecutor(max_workers=16) as pool:
             # Generate both PDFs in parallel
+            
+            money_speak_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
+                "money_speak.html",
+                {"data": {}},
+                money_speak_page_filename
+            ))
+        
+            intro_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
+                "intro_page.html",
+                {"data": {}},
+                intro_page_filename
+            ))
+            
             first_page_future = loop.run_in_executor(
                 pool,
                 lambda: report_generator.generate_pdf(
@@ -596,10 +611,13 @@ async def generate_investment_summary_report(
                 thank_you_page_filename
             ))
             
-            first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path, twentyone_page_path, twentytwo_page_path, twentythree_page_path, twentyfour_page_path, twentyfive_page_path, thank_you_page_path = await asyncio.gather(first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future, twentyone_page_future, twentytwo_page_future, twentythree_page_future, twentyfour_page_future, twentyfive_page_future, thank_you_page_future)
+       
+            money_speak_page_path, intro_page_path, first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path, twentyone_page_path, twentytwo_page_path, twentythree_page_path, twentyfour_page_path, twentyfive_page_path, thank_you_page_path = await asyncio.gather(money_speak_page_future,intro_page_future, first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future, twentyone_page_future, twentytwo_page_future, twentythree_page_future, twentyfour_page_future, twentyfive_page_future, thank_you_page_future)
        
         # Merge PDFs
         merger = PdfMerger()
+        merger.append(str(money_speak_page_path))
+        merger.append(str(intro_page_path))
         merger.append(str(first_page_path))
         merger.append(str(second_page_path))
         merger.append(str(fourth_page_path))
@@ -624,6 +642,7 @@ async def generate_investment_summary_report(
         merger.append(str(twentyfour_page_path))
         merger.append(str(twentyfive_page_path))
         merger.append(str(thank_you_page_path))
+
                 
         merged_path = OUTPUT_DIR / merged_filename
         with open(merged_path, "wb") as fout:
@@ -633,6 +652,8 @@ async def generate_investment_summary_report(
         # Schedule cleanup
         background_tasks.add_task(report_generator.cleanup_old_files)
         # Optionally, also cleanup the intermediate PDFs
+        background_tasks.add_task(lambda: Path(money_speak_page_path).unlink(missing_ok=True))
+        background_tasks.add_task(lambda: Path(intro_page_path).unlink(missing_ok=True))
         background_tasks.add_task(lambda: Path(first_page_path).unlink(missing_ok=True))
         background_tasks.add_task(lambda: Path(second_page_path).unlink(missing_ok=True))
         background_tasks.add_task(lambda: Path(fourth_page_path).unlink(missing_ok=True))
