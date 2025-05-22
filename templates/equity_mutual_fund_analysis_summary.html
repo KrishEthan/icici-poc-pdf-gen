@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debt Analysis</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #fff;
+      }
+      .header-banner {
+        background: linear-gradient(90deg, #eb781b 33%, #c12f29 100%);
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 30px;
+      }
+      .icici-logo {
+        height: 35px;
+      }
+      .private-banking {
+        font-size: 13px;
+        color: #ad8b00;
+        text-align: right;
+        padding: 6px 35px 0;
+        font-weight: 500;
+      }
+      .yellow-line {
+        height: 2px;
+        background-color: #f7be18;
+        margin: 0 35px;
+      }
+      .container {
+        padding: 30px 40px;
+      }
+      .report-box {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        border-radius: 8px;
+        background: white;
+        overflow-x: auto;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .divider {
+        height: 1.2px;
+        background-color: #000;
+        margin-bottom: 25px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+        min-width: 1000px;
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        text-align: right;
+        border-bottom: 1px solid #eee;
+        white-space: nowrap;
+      }
+      th:first-child,
+      td:first-child {
+        text-align: left;
+      }
+      th {
+        color: #c0c0c0;
+        font-weight: 500;
+        font-size: 12px;
+      }
+      tr.total-row {
+        background: #f0f0f0;
+        font-weight: bold;
+      }
+      .footer-logo {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        height: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="header-banner">
+      <img class="icici-logo" src="../assets/images/image.png" alt="ICICI Logo" />
+    </div>
+    <div class="private-banking">Private Banking</div>
+    <div class="yellow-line"></div>
+
+    <!-- Content Box -->
+    <div class="container">
+      <div class="report-box">
+        <div class="title">Equity Analysis</div>
+        <div class="divider"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Particulars</th>
+              <th>Holding Cost</th>
+              <th>Current Value</th>
+              <th>Holding%</th>
+              <th>Gain/Loss Realized(₹)</th>
+              <th>Dividend/Interest(₹)</th>
+              <th>Gain/Loss Unrealized(₹)</th>
+              <th>IRR %</th>
+            </tr>
+          </thead>  
+          <tbody>
+            {% for item in equity_analysis_response %}
+            <tr>
+              <td>{{ item.particulars }}</td>
+              <td>{{ item.holdings_cost }}</td>
+              <td>{{ item.current_value }}</td>
+              <td>{{ item.holdings }}</td>
+              <td>{{ item.gain_or_lose_realized }}</td>
+              <td>{{ item.devident_or_interest }}</td>
+              <td>{{ item.gain_or_lose_unrealized }}</td>
+              <td>{{ item.irr }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <img class="footer-logo" src="../assets/images/logo.png" alt="Logo" />
+  </body>
+</html>
