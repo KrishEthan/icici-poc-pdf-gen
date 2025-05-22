@@ -11,21 +11,13 @@
         background: #fff;
       }
 
-      .header-banner {
-        background: linear-gradient(90deg, #eb781b 33%, #c12f29 100%);
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 0 30px;
-      }
-
       .icici-logo {
-        height: 35px;
+        height: auto;
+        width: 100%;
       }
 
       .private-banking {
-        font-size: 13px;
+        font-size: 11px;
         color: #ad8b00;
         text-align: right;
         padding: 5px 35px;
@@ -33,22 +25,9 @@
         border-bottom: 2px solid #eb781b;
       }
 
-      .container {
-        padding: 30px 40px;
-      }
-
-      .summary-box {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        border-radius: 10px;
-        max-width: 100%;
-        margin: 0 auto;
-        background: white;
-        overflow-x: auto;
-      }
-
       .summary-title {
-        font-size: 20px;
+        margin-top: 20px;
+        font-size: 18px;
         font-weight: 600;
         margin-bottom: 20px;
         color: #000;
@@ -60,7 +39,7 @@
         border-collapse: collapse;
         width: 100%;
         min-width: 1200px;
-        font-size: 14px;
+        font-size: 11px;
       }
 
       th,
@@ -91,44 +70,37 @@
     </style>
   </head>
   <body>
-    <div class="header-banner">
-      <img
-        class="icici-logo"
-        src="../assets/images/image.png"
-        alt="ICICI Logo"
-      />
-    </div>
+    <img
+      class="icici-logo"
+      src="../assets/images/headerImage.png"
+      alt="ICICI Logo"
+    />
     <div class="private-banking">Private Banking</div>
 
-    <div class="container">
-      <div class="summary-box">
-        <div class="summary-title">Demat Stocks</div>
-        <table>
-          <thead>
-            <tr>
-              <th>Stock Name</th>
-              <th>Type Direct Equity<br />Stock/Bond/MF</th>
-              <th>ISIN</th>
-              <th>No of Units</th>
-              <th>Market Price Per Share</th>
-              <th>Current Market Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for row in data %}
-            <tr>
-              <td>{{ row.stock_name or '' }}</td>
-              <td>{{ row.date or '' }}</td>
-              <td>{{ row.ISIN or '' }}</td>
-              <td>{{ row.no_of_units or '' }}</td>
-              <td>{{ row.market_price_per_share or '' }}</td>
-              <td>{{ row.current_market_value or '' }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <img class="footer-logo" src="../assets/images/logo.png" alt="Logo" />
+    <div class="summary-title">Demat Stocks</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Stock Name</th>
+          <th>Type Direct Equity<br />Stock/Bond/MF</th>
+          <th>ISIN</th>
+          <th>No of Units</th>
+          <th>Market Price Per Share</th>
+          <th>Current Market Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td>{{ row.stock_name or '' }}</td>
+          <td>{{ row.date or '' }}</td>
+          <td>{{ row.ISIN or '' }}</td>
+          <td>{{ row.no_of_units or '' }}</td>
+          <td>{{ row.market_price_per_share or '' }}</td>
+          <td>{{ row.current_market_value or '' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
 </html>

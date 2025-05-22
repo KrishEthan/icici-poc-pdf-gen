@@ -11,21 +11,13 @@
         background: #fff;
       }
 
-      .header-banner {
-        background: linear-gradient(90deg, #eb781b 33%, #c12f29 100%);
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 0 30px;
-      }
-
       .icici-logo {
-        height: 35px;
+        height: auto;
+        width: 100%;
       }
 
       .private-banking {
-        font-size: 13px;
+        font-size: 11px;
         color: #ad8b00;
         text-align: right;
         padding: 5px 35px;
@@ -33,22 +25,9 @@
         border-bottom: 2px solid #eb781b;
       }
 
-      .container {
-        padding: 30px 40px;
-      }
-
-      .summary-box {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        border-radius: 10px;
-        max-width: 100%;
-        margin: 0 auto;
-        background: white;
-        overflow-x: auto;
-      }
-
       .summary-title {
-        font-size: 20px;
+        margin-top: 20px;
+        font-size: 18px;
         font-weight: 600;
         margin-bottom: 20px;
         color: #000;
@@ -60,7 +39,7 @@
         border-collapse: collapse;
         width: 100%;
         min-width: 1200px;
-        font-size: 14px;
+        font-size: 11px;
       }
 
       th,
@@ -91,60 +70,61 @@
     </style>
   </head>
   <body>
-    <div class="header-banner">
-      <img class="icici-logo" src="/src/icons/image (5).png" alt="ICICI Logo" />
-    </div>
+    <img
+      class="icici-logo"
+      src="../assets/images/headerImage.png"
+      alt="ICICI Logo"
+    />
     <div class="private-banking">Private Banking</div>
-
-    <div class="container">
-      <div class="summary-box">
-        <div class="summary-title">Equity AIF Instrument Level Summary</div>
-        <table>
-          <thead>
-            <tr>
-              <th>Instrument Name</th>
-              <th>Fund Name</th>
-              <th>Reference No.</th>
-              <th>Investment Date</th>
-              <th>Investment Amount</th>
-              <th>Return of Capital</th>
-              <th>Valuation Date</th>
-              <th>Current Value</th>
-              <th>Unrealized Gain/Loss(₹)</th>
-              <th>Realized Gain/Loss</th>
-              <th>XIRR(%)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for item in summary %}
-            <tr>
-              <td>{{ item.instument_name or "—" }}</td>
-              <td>{{ item.fund_name or "—" }}</td>
-              <td>{{ item.reference_no or "—" }}</td>
-              <td>{{ item.investment_date or "—" }}</td>
-              <td>
-                {{ "{:,.0f}".format(item.investment_amount|float) if item.investment_amount else "—" }}
-              </td>
-              <td>
-                {{ "{:,.0f}".format(item.return_of_capital|float) if item.return_of_capital else "—" }}
-              </td>
-              <td>{{ item.valuation_date or "—" }}</td>
-              <td>
-                {{ "{:,.0f}".format(item.current_value|float) if item.current_value else "—" }}
-              </td>
-              <td>
-                {{ "{:,.0f}".format(item.unrealized_gain_loss|float) if item.unrealized_gain_loss else "—" }}
-              </td>
-              <td>
-                {{ "{:,.0f}".format(item.realized_gain_loss|float) if item.realized_gain_loss else "—" }}
-              </td>
-              <td>{{ item.xirr or "—" }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <img class="footer-logo" src="/src/icons/image1.png" alt="Logo" />
+    <div class="summary-title">Equity AIF Instrument Level Summary</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Instrument Name</th>
+          <th>Fund Name</th>
+          <th>Reference No.</th>
+          <th>Investment Date</th>
+          <th>Investment Amount</th>
+          <th>Return of Capital</th>
+          <th>Valuation Date</th>
+          <th>Current Value</th>
+          <th>Unrealized Gain/Loss(₹)</th>
+          <th>Realized Gain/Loss</th>
+          <th>XIRR(%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in summary %}
+        <tr>
+          <td>{{ item.instument_name or "—" }}</td>
+          <td>{{ item.fund_name or "—" }}</td>
+          <td>{{ item.reference_no or "—" }}</td>
+          <td>{{ item.investment_date or "—" }}</td>
+          <td>
+            {{ "{:,.0f}".format(item.investment_amount|float) if
+            item.investment_amount else "—" }}
+          </td>
+          <td>
+            {{ "{:,.0f}".format(item.return_of_capital|float) if
+            item.return_of_capital else "—" }}
+          </td>
+          <td>{{ item.valuation_date or "—" }}</td>
+          <td>
+            {{ "{:,.0f}".format(item.current_value|float) if item.current_value
+            else "—" }}
+          </td>
+          <td>
+            {{ "{:,.0f}".format(item.unrealized_gain_loss|float) if
+            item.unrealized_gain_loss else "—" }}
+          </td>
+          <td>
+            {{ "{:,.0f}".format(item.realized_gain_loss|float) if
+            item.realized_gain_loss else "—" }}
+          </td>
+          <td>{{ item.xirr or "—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
 </html>

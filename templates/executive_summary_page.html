@@ -8,27 +8,8 @@
         padding: 0;
         font-family: Arial, sans-serif;
       }
-      #header-bar {
-        height: 70px;
-        background: linear-gradient(
-          90deg,
-          #eb781b 33%,
-          #c12f29 100%
-        ) !important;
-      }
-      .container {
-        padding: 40px;
-      }
-      .summary-box {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 30px;
-        border-radius: 8px;
-        max-width: 1200px;
-        margin: 0 auto;
-        background: white;
-      }
       .summary-title {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
         margin-bottom: 20px;
       }
@@ -40,7 +21,7 @@
         align-items: center;
         gap: 10px;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 11px;
         margin-bottom: 10px;
       }
       .tables-container {
@@ -50,7 +31,7 @@
       table {
         border-collapse: collapse;
         width: 100%;
-        font-size: 14px;
+        font-size: 11px;
       }
       th,
       td {
@@ -81,72 +62,68 @@
     </style>
   </head>
   <body>
-    <div id="header-bar"></div>
-    <div class="container">
-      <div class="summary-box">
-        <div class="summary-title">Investment Summary</div>
+    <div>
+      <div class="summary-title">Investment Summary</div>
 
-        <div class="tables-container">
-          <!-- Assets Section -->
-          <div class="section" style="flex: 2">
-            <div class="section-header">Assets</div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Particulars</th>
-                  <th>Holding Cost (₹)</th>
-                  <th>Current Value (₹)</th>
-                  <th>IRR Since Inception (₹)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in assets %} {% if row.particular == "Assets" or
-                row.particular == "Total Assets" %}
-                <tr class="bold-row">
-                  <td>{{ row.particular }}</td>
-                  <td>{{ row.holding_cost or '' }}</td>
-                  <td>{{ row.current_value or '' }}</td>
-                  <td>{{ row.irr or '' }}</td>
-                </tr>
-                {% else %}
-                <tr>
-                  <td>{{ row.particular }}</td>
-                  <td>{{ row.holding_cost or '' }}</td>
-                  <td>{{ row.current_value or '' }}</td>
-                  <td>{{ row.irr or '' }}</td>
-                </tr>
-                {% endif %} {% endfor %}
-              </tbody>
-            </table>
-          </div>
+      <div class="tables-container">
+        <!-- Assets Section -->
+        <div class="section" style="flex: 2">
+          <div class="section-header">Assets</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Particulars</th>
+                <th>Holding Cost (₹)</th>
+                <th>Current Value (₹)</th>
+                <th>IRR Since Inception (₹)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in assets %} {% if row.particular == "Assets" or
+              row.particular == "Total Assets" %}
+              <tr class="bold-row">
+                <td>{{ row.particular }}</td>
+                <td>{{ row.holding_cost or '' }}</td>
+                <td>{{ row.current_value or '' }}</td>
+                <td>{{ row.irr or '' }}</td>
+              </tr>
+              {% else %}
+              <tr>
+                <td>{{ row.particular }}</td>
+                <td>{{ row.holding_cost or '' }}</td>
+                <td>{{ row.current_value or '' }}</td>
+                <td>{{ row.irr or '' }}</td>
+              </tr>
+              {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
 
-          <!-- Liabilities Section -->
-          <div class="section" style="flex: 1">
-            <div class="section-header">Liabilities</div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Particulars</th>
-                  <th>Loan/Credit Limit</th>
-                  <th>Outstanding Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in liabilities %}
-                <tr
-                  class="{% if row.particular.strip() == 'Total Liabilities' %}bold-row{% endif %}"
-                >
-                  <td>{{ row.particular }}</td>
-                  <td>{{ row.loan_credit_limit or '' }}</td>
-                  <td>{{ row.outstanding_amount or '' }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+        <!-- Liabilities Section -->
+        <div class="section" style="flex: 1">
+          <div class="section-header">Liabilities</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Particulars</th>
+                <th>Loan/Credit Limit</th>
+                <th>Outstanding Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in liabilities %}
+              <tr
+                class="{% if row.particular.strip() == 'Total Liabilities' %}bold-row{% endif %}"
+              >
+                <td>{{ row.particular }}</td>
+                <td>{{ row.loan_credit_limit or '' }}</td>
+                <td>{{ row.outstanding_amount or '' }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-    <img class="footer-logo" src="../assets/images/logo.png" alt="Logo" />
   </body>
 </html>
