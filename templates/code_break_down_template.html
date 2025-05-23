@@ -1,148 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Client Code Level Breakup</title>
-    <style>
-      body {
-        color: #333;
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-        background-color: #f8f8f8;
-      }
-      .dashboard {
-        margin: 0 auto;
-        border: 1px solid #ddd;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        max-width: 1000px; /* Adjust as needed */
-      }
-      .header {
-        font-size: 11px;
-        font-weight: bold;
-        color: #222;
-        padding-bottom: 15px;
-        border-bottom: 2px solid #ff6600; /* Orange line from the image */
-        margin-bottom: 20px;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        font-size: 11px;
-      }
-      table th {
-        background-color: #e0e0e0; /* Light gray from the image */
-        padding: 10px 10px;
-        text-align: left;
-        font-weight: normal;
-        color: #333;
-        border-bottom: 1px solid #ccc;
-        border-right: 1px solid #f2f2f2; /* Subtle right border for separation */
-      }
-      table th:last-child {
-        border-right: none;
-      }
-      table td {
-        padding: 10px 10px;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-        border-right: 1px solid #f9f9f9; /* Subtle right border for separation */
-      }
-      table td:last-child {
-        border-right: none;
-      }
- 
-      /* Specific styles for the asset allocation headers */
-      .asset-allocation-header {
-        text-align: center;
-        background-color: #e0e0e0;
-        padding: 5px 0;
-        border-bottom: 1px solid #ccc;
-        font-weight: normal;
-        color: #333;
-      }
-      .sub-header-group {
-        display: flex;
-        justify-content: space-around;
-        background-color: #e0e0e0; /* Match main header */
-        padding: 5px 0;
-        border-bottom: 1px solid #ccc;
-      }
-      .sub-header {
-        flex: 1;
-        text-align: center;
-        font-weight: normal;
-        color: #333;
-        border-right: 1px solid #f2f2f2;
-      }
-      .sub-header:last-child {
-        border-right: none;
-      }
- 
-      .text-right {
-        text-align: right;
-      }
-      .total-row {
-        background-color: #f2f2f2;
-        font-weight: bold;
-      }
-      .allocation-bar-container {
-        width: 100%;
-        height: 15px; /* Adjust height of the bar */
-        background-color: #ddd; /* Default background */
-        display: flex;
-        overflow: hidden;
-      }
-      .allocation-bar-debt {
-        background-color: #a6d96a; /* Greenish color */
-      }
-      .allocation-bar-equity {
-        background-color: #67a9cf; /* Bluish color */
-      }
-      .allocation-bar-others {
-        background-color: #fc8d62; /* Orangish color */
-      }
-      .allocation-text {
-        font-size: 11px;
-        text-align: center;
-        padding: 2px 0;
-      }
-      .allocation-bar-debt, .allocation-bar-equity, .allocation-bar-others {
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="dashboard">
-      <div class="header">Client Code Level Breakup</div>
- 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Code Level Breakup</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #fff;
+    }
+
+    .header-banner {
+      background: linear-gradient(90deg, #eb781b 33%, #c12f29 100%);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 30px;
+    }
+
+    .icici-logo {
+      height: 35px;
+    }
+
+    .private-banking {
+      font-size: 13px;
+      color: #ad8b00;
+      text-align: right;
+      padding: 4px 35px;
+      font-weight: 500;
+    }
+
+    .yellow-line {
+      height: 2px;
+      background-color: #f5c344;
+      width: 100%;
+    }
+
+    .container {
+      padding: 30px 40px;
+    }
+
+    .summary-box {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      background: white;
+      overflow-x: auto;
+    }
+
+    .summary-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 6px;
+    }
+
+    .black-line {
+      border: none;
+      height: 1px;
+      background-color: #000;
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 1100px;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f8f8f8;
+      color: #999;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .bold-row {
+      font-weight: bold;
+      background-color: #f6f6f6;
+    }
+
+    .allocation-bar {
+      display: flex;
+      height: 6px;
+      width: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      background-color: #f0f0f0;
+    }
+
+    .segment {
+      height: 100%;
+    }
+
+    .segment.red { background-color: #e40000; }
+    .segment.blue { background-color: #0066cc; }
+    .segment.grey { background-color: #999; }
+
+    .allocation-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .allocation-text span {
+      display: flex;
+      gap: 4px;
+    }
+
+    .red { color: #e40000; }
+    .blue { color: #0066cc; }
+    .grey { color: #999; }
+  </style>
+</head>
+<body>
+  <div class="header-banner">
+    <img class="icici-logo" src="/src/icons/image (5).png" alt="ICICI Logo" />
+  </div>
+  <div class="private-banking">Private Banking</div>
+  <div class="yellow-line"></div>
+
+  <div class="container">
+    <div class="summary-box">
+      <div class="summary-title">Client Code Level Breakup</div>
+      <hr class="black-line" />
+
       <table>
         <thead>
           <tr>
-            <th rowspan="2">Investment Client Code Name</th>
-            <th rowspan="2">Risk Profile</th>
-            <th rowspan="2" class="text-right">Current Value (₹)</th>
-            <th rowspan="2" class="text-right">Investment Value (₹)</th>
-            <th rowspan="2" class="text-right">Weightage (%)</th>
-            <th rowspan="2" class="text-right">Total Gain/Loss (₹)</th>
-            <th colspan="3" class="asset-allocation-header">
-              Current Asset Allocation
-            </th>
-            <th colspan="3" class="asset-allocation-header">
-              Target Asset Allocation
-            </th>
-          </tr>
-          <tr>
-            <th class="sub-header">Debt</th>
-            <th class="sub-header">Equity</th>
-            <th class="sub-header">Others</th>
-            <th class="sub-header">Debt</th>
-            <th class="sub-header">Equity</th>
-            <th class="sub-header">Others</th>
+            <th>Investment Client Code Name</th>
+            <th>Risk Profile</th>
+            <th>Current Value(₹)</th>
+            <th>Investment Value(₹)</th>
+            <th>Weightage(%)</th>
+            <th>Total Gain/Loss(₹)</th>
+            <th>Current Asset Allocation</th>
+            <th>Model Asset Allocation</th>
           </tr>
         </thead>
         <tbody>
@@ -150,46 +156,49 @@
           <tr>
             <td>{{ client.name }}</td>
             <td>{{ client.risk_profile }}</td>
-            <td class="text-right">{{ client.current_value }}</td>
-            <td class="text-right">{{ client.investment_value }}</td>
-            <td class="text-right">{{ client.weightage }}</td>
-            <td class="text-right">{{ client.total_gain_loss }}</td>
-            <td class="text-right">{{ client.current_asset_allocation.debt }}</td>
-            <td class="text-right">{{ client.current_asset_allocation.equity }}</td>
-            <td class="text-right">{{ client.current_asset_allocation.others }}</td>
-            <td class="text-right">{{ client.target_asset_allocation.debt }}</td>
-            <td class="text-right">{{ client.target_asset_allocation.equity }}</td>
-            <td class="text-right">{{ client.target_asset_allocation.others }}</td>
-          </tr>
-          <tr>
-              <td colspan="6"></td>
-              <td colspan="3">
-                  <div class="allocation-bar-container">
-                      <div class="allocation-bar-debt" style="width: 100%"></div>{{ client.current_asset_allocation.debt }}</div>
-                      <div class="allocation-bar-equity" style="width: 100%"></div>{{ client.current_asset_allocation.equity }}></div>
-                      <div class="allocation-bar-others" style="width: 100%"></div>{{ client.current_asset_allocation.others }}></div>
-                  </div>
-              </td>
-              <td colspan="3">
-                  <div class="allocation-bar-container">
-                      <div class="allocation-bar-debt" style="width: 100%"></div>{{ client.target_asset_allocation.debt }}</div>
-                      <div class="allocation-bar-equity" style="width: 100%"></div>{{ client.target_asset_allocation.equity }}</div>
-                      <div class="allocation-bar-others"style="width: 100%"></div>{{ client.target_asset_allocation.others }}</div>
-                  </div>
-              </td>
+            <td>{{ client.current_value }}</td>
+            <td>{{ client.investment_value }}</td>
+            <td>{{ client.weightage }}</td>
+            <td>{{ client.total_gain_loss }}</td>
+            <td>
+              <div class="allocation-bar">
+                <div class="segment grey" style="width: 100%">{{ client.target_asset_allocation.debt }}</div>
+                <div class="segment grey" style="width: 100%">{{ client.target_asset_allocation.equity }}</div>
+                <div class="segment grey" style="width: 100%">{{ client.target_asset_allocation.others }}</div>
+              </div>
+              <div class="allocation-text">
+                <span><span class="red">Debt</span> {{ client.current_asset_allocation.debt }}%</span>
+                <span><span class="blue">Equity</span> {{ client.current_asset_allocation.equity }}%</span>
+                <span><span class="grey">Others</span> {{ client.current_asset_allocation.others }}%</span>
+              </div>
+            </td>
+            <td>
+              <div class="allocation-bar">
+                <div class="segment grey" style="width: 100%">{{ client.target_asset_allocation.debt }}</div>
+                <div class="segment grey" style="width: 100%">{{ client.target_asset_allocation.equity }}</div>
+                <div class="segment grey" style="width: 100%">{{ client.target_asset_allocation.others }}</div>
+              </div>
+              <div class="allocation-text">
+                <span><span class="red">Debt</span> {{ client.target_asset_allocation.debt }}%</span>
+                <span><span class="blue">Equity</span> {{ client.target_asset_allocation.equity }}%</span>
+                <span><span class="grey">Others</span> {{ client.target_asset_allocation.others }}%</span>
+              </div>
+            </td>
           </tr>
           {% endfor %}
-          <tr class="total-row">
-            <td>TOTAL</td>
-            <td></td>
-            <td class="text-right">{{ total.current_value }}</td>
-            <td class="text-right">{{ total.investment_value }}</td>
-            <td class="text-right">{{ total.weightage }}</td>
-            <td class="text-right">{{ total.total_gain_loss }}</td>
-            <td colspan="6"></td> {# Empty cells for asset allocation in total row #}
-          </tr>
+
+     <tr class="bold-row">
+  <td>Total</td>
+  <td></td>
+  <td>{{ "{:,.2f}".format(total.current_value) }}</td>
+  <td>{{ "{:,.2f}".format(total.investment_value) }}</td>
+  <td>{{ '{:.2f}'.format(total.weightage) }}</td>
+  <td>{{ "{:,.2f}".format(total.total_gain_loss) }}</td>
+  <td colspan="2"></td>
+</tr>
         </tbody>
       </table>
     </div>
-  </body>
+  </div>
+</body>
 </html>
