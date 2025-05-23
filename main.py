@@ -289,10 +289,6 @@ class Client(BaseModel):
     current_asset_allocation: AssetAllocation
     target_asset_allocation: AssetAllocation
 
-from pydantic import BaseModel
-from typing import List
-
-
 class InvestmentItem(BaseModel):
     particulars: str
     holdings_cost: str
@@ -619,8 +615,7 @@ async def generate_investment_summary_report(
             ))
             
        
-            money_speak_page_path, intro_page_path, first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path, twentyone_page_path, twentytwo_page_path, twentythree_page_path, twentyfour_page_path, twentyfive_page_path, thank_you_page_path = await asyncio.gather(money_speak_page_future,intro_page_future, first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future, twentyone_page_future, twentytwo_page_future, twentythree_page_future, twentyfour_page_future, twentyfive_page_future, thank_you_page_future)
-            first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path, twentyone_page_path, twentytwo_page_path, twentythree_page_path, twentyfour_page_path, twentyfive_page_path, thank_you_page_path, annexure_page_path = await asyncio.gather(first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future, twentyone_page_future, twentytwo_page_future, twentythree_page_future, twentyfour_page_future, twentyfive_page_future, thank_you_page_future, annexure_page_future)
+            money_speak_page_path, intro_page_path, first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path, twentyone_page_path, twentytwo_page_path, twentythree_page_path, twentyfour_page_path, twentyfive_page_path, thank_you_page_path, annexure_page_path = await asyncio.gather(money_speak_page_future,intro_page_future, first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future, twentyone_page_future, twentytwo_page_future, twentythree_page_future, twentyfour_page_future, twentyfive_page_future, thank_you_page_future, annexure_page_future)
        
         # Merge PDFs
         merger = PdfMerger()
