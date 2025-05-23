@@ -24,6 +24,25 @@
         font-size: 11px;
         margin-bottom: 10px;
       }
+         .sub-header {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .sub-header img {
+        height: 20px;
+        margin-right: 5px;
+      }
+        .black-line {
+        border-bottom: 1px solid black;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 20px;
+      }
+
       .tables-container {
         display: flex;
         gap: 40px;
@@ -68,7 +87,11 @@
       <div class="tables-container">
         <!-- Assets Section -->
         <div class="section" style="flex: 2">
-          <div class="section-header">Assets</div>
+        <div class="sub-header">
+        <img src="../assets/images/assets.png" alt="Assets Icon" />
+          Assets
+        </div>
+         <div class="black-line"></div>
           <table>
             <thead>
               <tr>
@@ -101,7 +124,11 @@
 
         <!-- Liabilities Section -->
         <div class="section" style="flex: 1">
-          <div class="section-header">Liabilities</div>
+          <div class="sub-header">
+            <img src="../assets/images/assets.png" alt="Assets Icon" />
+          Liabilities
+          </div>
+         <div class="black-line"></div>
           <table>
             <thead>
               <tr>
