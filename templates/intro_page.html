@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <style>
@@ -21,9 +21,111 @@
   <body>
     <img
       class="fullscreen-image"
-      src="../assets/images/intro.png"
-      s
+      src="https://saiml.s3.ap-southeast-1.amazonaws.com/ICICI+BANK/image.png"
       alt="Thank You"
     />
+    <div>
+
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Summary UI</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 715px;
+        width: 1090px;
+        font-family: "Segoe UI", sans-serif;
+        position: relative;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .overlay-text {
+        position: absolute;
+        color: #b39200;
+        font-size: 24px;
+        font-weight: 600;
+        top: 80px;
+        left: 60px;
+      }
+
+      .summary-date {
+        position: absolute;
+        top: 130px;
+        left: 60px;
+        color: #b39200;
+        font-size: 20px;
+      }
+
+      .rm-details,
+      .csm-details {
+        position: absolute;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .rm-details {
+        top: 320px;
+        left: 60px;
+      }
+
+      .csm-details {
+        top: 370px;
+        left: 60px;
+      }
+
+      .rm-details span,
+      .csm-details span {
+        display: block;
+        color: #000;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        class="background-image"
+        src="https://saiml.s3.ap-southeast-1.amazonaws.com/ICICI+BANK/image.png"
+        alt="Financial Summary"
+      />
+
+      <div class="overlay-text">AMBAR BOSE – 933344 Family</div>
+
+      <div class="summary-date">
+        Financial Summary<br />
+        24–Jan–2024
+      </div>
+
+      <div class="rm-details">
+        RM Details :<br />
+        <span>NISHEK KUMAR | Myrm@icicibank.com | 8700000000</span>
+      </div>
+
+      <div class="csm-details">
+        CSM Details :<br />
+        <span>PRASANTH V</span>
+      </div>
+    </div>
   </body>
 </html>
