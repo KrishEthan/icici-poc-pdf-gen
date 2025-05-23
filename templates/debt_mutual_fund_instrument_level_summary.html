@@ -4,71 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Debt Mutual Fund Instrument Summary</title>
+    <link rel="stylesheet" href="../style/style.css" />
     <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: #fff;
-      }
-      .icici-logo {
-        height: auto;
-        width: 100%;
-      }
-      .private-banking {
-        font-size: 11px;
-        color: #ad8b00;
-        text-align: right;
-        padding: 5px 35px;
-        font-weight: 500;
-      }
-      .summary-title {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #000;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 1200px;
-        font-size: 11px;
-      }
-      th,
-      td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #eee;
-        text-align: right;
-        white-space: nowrap;
-      }
-      th:first-child,
-      td:first-child {
-        text-align: left;
-      }
-      th {
-        background-color: #f8f8f8;
-        color: #999;
-        font-weight: 500;
-      }
       .bold-row {
         font-weight: bold;
         background-color: #fff2f2;
       }
-      .footer-logo {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        height: 80px;
-      }
-      .yellow-line {
-        border-bottom: 2px solid #ffcc00;
-        width: 100%;
-      }
-      .black-line {
-        border-bottom: 1px solid black;
-        width: 100%;
-        margin-top: 5px;
-        margin-bottom: 25px;
+
+      .bold-row-client {
+        font-weight: bold;
+        background-color: #fff2e8;
       }
     </style>
   </head>
@@ -81,109 +26,58 @@
     <div class="private-banking">Private Banking</div>
     <div class="yellow-line"></div>
 
-    <div class="summary-title">Debt Mutual Fund Instrument Level Summary</div>
-    <div class="black-line"></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Scheme Name</th>
-          <th>Folio No.</th>
-          <th>Date of Investment</th>
-          <th>Invested Amount</th>
-          <th>Dividend/Received</th>
-          <th>No. of Units</th>
-          <th>Last Updated Nav</th>
-          <th>Current Market Value</th>
-          <th>Unrealised (Gain/Loss)</th>
-          <th>Realised (Gain/Loss)</th>
-          <th>IRR Since Inception</th>
-          <th>IRR FYTD</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% set previous_type = '' %} {% for row in investment_details %} {% if
-        row.types != previous_type %} {% if row.types != "Liquid" %}
-        <tr class="bold-row">
-          <td colspan="12">{{ row.accounts }}</td>
-        </tr>
-        {% endif %}
-        <tr class="bold-row">
-          <td colspan="12">{{ row.types }}</td>
-        </tr>
-        {% set previous_type = row.types %} {% endif %}
+    <div class="container">
+      <div class="title">Debt Mutual Fund Instrument Level Summary</div>
+      <div class="black-line"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Scheme Name</th>
+            <th>Folio No.</th>
+            <th>Date of Investment</th>
+            <th>Invested Amount</th>
+            <th>Dividend/Received</th>
+            <th>No. of Units</th>
+            <th>Last Updated Nav</th>
+            <th>Current Market Value</th>
+            <th>Unrealised (Gain/Loss)</th>
+            <th>Realised (Gain/Loss)</th>
+            <th>IRR Since Inception</th>
+            <th>IRR FYTD</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% set previous_type = '' %} {% for row in investment_details %} {% if
+          row.types != previous_type %} {% if row.types != "Liquid" %}
+          <tr class="bold-row-client">
+            <td colspan="12">{{ row.accounts }}</td>
+          </tr>
+          {% endif %}
+          <tr class="bold-row">
+            <td colspan="12">{{ row.types }}</td>
+          </tr>
+          {% set previous_type = row.types %} {% endif %}
 
-        <tr
-          class="{% if row.particular == 'Total Assets' %}total-row{% endif %}"
-        >
-          <td>{{ row.scheme_name }}</td>
-          <td>{{ row.folio_no or '' }}</td>
-          <td>{{ row.date_of_investment or '' }}</td>
-          <td>{{ row.invested_amount or '' }}</td>
-          <td>{{ row.dividends_received or '' }}</td>
-          <td>{{ row.no_of_units or '' }}</td>
-          <td>{{ row.last_updated_nav or '' }}</td>
-          <td>{{ row.current_market_value or '' }}</td>
-          <td>{{ row.unrealized_gain_loss or '' }}</td>
-          <td>{{ row.realized_gain_loss or '' }}</td>
-          <td>{{ row.irr_since_inception or '' }}</td>
-          <td>{{ row.irr_ytd or '' }}</td>
-        </tr>
+          <tr
+            class="{% if row.particular == 'Total Assets' %}total-row{% endif %}"
+          >
+            <td>{{ row.scheme_name }}</td>
+            <td>{{ row.folio_no or '' }}</td>
+            <td>{{ row.date_of_investment or '' }}</td>
+            <td>{{ row.invested_amount or '' }}</td>
+            <td>{{ row.dividends_received or '' }}</td>
+            <td>{{ row.no_of_units or '' }}</td>
+            <td>{{ row.last_updated_nav or '' }}</td>
+            <td>{{ row.current_market_value or '' }}</td>
+            <td>{{ row.unrealized_gain_loss or '' }}</td>
+            <td>{{ row.realized_gain_loss or '' }}</td>
+            <td>{{ row.irr_since_inception or '' }}</td>
+            <td>{{ row.irr_ytd or '' }}</td>
+          </tr>
 
-        {% endfor %}
-
-        <!-- Static fallback rows (if needed) -->
-        <!-- <tr class="bold-row">
-              <td colspan="12">Liquid</td>
-            </tr>
-            <tr>
-              <td>Mirae Asset Cash Management-G</td>
-              <td>9,99,950</td>
-              <td>29-11-19</td>
-              <td>21,53,748</td>
-              <td>0</td>
-              <td>1,059.9</td>
-              <td>2,199.5</td>
-              <td>23,31,174</td>
-              <td>1,77,426</td>
-              <td>3,744</td>
-              <td>3.83</td>
-              <td>0.0</td>
-            </tr>
-            <tr class="bold-row">
-              <td colspan="12">Accounts - 2042831 & ANIL BHA_2042831 & ANIL BHA_2042831 & ANIL BHA</td>
-            </tr>
-            <tr class="bold-row">
-              <td colspan="12">Dynamic Bond</td>
-            </tr>
-            <tr>
-              <td>ICICI Pru All Season Bond Prem-G</td>
-              <td>11221451421</td>
-              <td>06-02-25</td>
-              <td>3,000</td>
-              <td>0</td>
-              <td>300.0</td>
-              <td>25.8</td>
-              <td>7,726</td>
-              <td>4,726</td>
-              <td>0</td>
-              <td>0.00</td>
-              <td>0.0</td>
-            </tr>
-            <tr class="bold-row">
-              <td>Total</td>
-              <td></td>
-              <td></td>
-              <td>32,56,648</td>
-              <td>0</td>
-              <td>1,850.1</td>
-              <td></td>
-              <td>45,12,750</td>
-              <td>12,56,750</td>
-              <td>3,744</td>
-              <td>6.83</td>
-              <td>-0.1</td>
-            </tr> -->
-      </tbody>
-    </table>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

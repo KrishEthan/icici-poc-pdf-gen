@@ -4,75 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Equity Mutual Fund Instrument Summary</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: #fff;
-      }
-
-      .icici-logo {
-        height: auto;
-        width: 100%;
-      }
-
-      .private-banking {
-        font-size: 11px;
-        color: #ad8b00;
-        text-align: right;
-        padding: 5px 35px;
-        font-weight: 500;
-        border-bottom: 2px solid #eb781b;
-      }
-
-      .summary-title {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #000;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #000;
-      }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 1200px;
-        font-size: 11px;
-      }
-
-      th,
-      td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #eee;
-        text-align: right;
-        white-space: nowrap;
-      }
-
-      th:first-child,
-      td:first-child {
-        text-align: left;
-      }
-
-      th {
-        background-color: #f8f8f8;
-        color: #999;
-        font-weight: 500;
-      }
-
-      .bold-row {
-        font-weight: bold;
-        background-color: #fff2f2;
-      }
-
-      .footer-logo {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        height: 80px;
-      }
-    </style>
+    <link rel="stylesheet" href="../style/style.css" />
   </head>
   <body>
     <img
@@ -81,40 +13,41 @@
       alt="ICICI Logo"
     />
     <div class="private-banking">Private Banking</div>
+    <div class="yellow-line"></div>
 
-    <div class="summary-title">Equity PMS</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Scheme Name</th>
-          <th>Reference No.</th>
-          <th>Investment Date</th>
-          <th>Investment Amount</th>
-          <th>Valuation Date</th>
-          <th>Current Value</th>
-          <th>Unrealized Gain/Loss(₹)</th>
-          <th>Amount/Capital Redeemed</th>
-          <th>XIRR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="bold-row">
-          <td colspan="12">{{ data.client_name }}</td>
-        </tr>
-        {% for row in data %}
-        <tr>
-          <td>{{ row.particular or '' }}</td>
-          <td>{{ row.reference_no or '' }}</td>
-          <td>{{ row.investment_date or '' }}</td>
-          <td>{{ row.investment_amount or '' }}</td>
-          <td>{{ row.valuation_date or '' }}</td>
-          <td>{{ row.current_value or '' }}</td>
-          <td>{{ row.unrealized_gain_loss or '' }}</td>
-          <td>{{ row.amount_or_capital_redeemed or '' }}</td>
-          <td>{{ row.XIRR or '' }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="container">
+      <div class="title">Equity PMS</div>
+      <div class="black-line"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Scheme Name</th>
+            <th>Reference No.</th>
+            <th>Investment Date</th>
+            <th>Investment Amount</th>
+            <th>Valuation Date</th>
+            <th>Current Value</th>
+            <th>Unrealized Gain/Loss(₹)</th>
+            <th>Amount/Capital Redeemed</th>
+            <th>XIRR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in data %}
+          <tr>
+            <td>{{ row.particular or '' }}</td>
+            <td>{{ row.reference_no or '' }}</td>
+            <td>{{ row.investment_date or '' }}</td>
+            <td>{{ row.investment_amount or '' }}</td>
+            <td>{{ row.valuation_date or '' }}</td>
+            <td>{{ row.current_value or '' }}</td>
+            <td>{{ row.unrealized_gain_loss or '' }}</td>
+            <td>{{ row.amount_or_capital_redeemed or '' }}</td>
+            <td>{{ row.XIRR or '' }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

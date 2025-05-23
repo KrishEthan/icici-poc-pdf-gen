@@ -418,7 +418,7 @@ async def generate_investment_summary_report(
         thank_you_page_filename = f"thank_you_{timestamp}.pdf"
         annexure_page_filename = f"annexure_{timestamp}.pdf"
         
-        merged_filename = f"investment_summary_report_{timestamp}.pdf"
+        merged_filename = f"investment_summary_report.pdf"
  
         loop = asyncio.get_event_loop()
         with ThreadPoolExecutor(max_workers=16) as pool:

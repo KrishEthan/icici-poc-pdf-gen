@@ -4,64 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hybrid Mutual Fund Instrument Summary</title>
+    <link rel="stylesheet" href="../style/style.css" />
     <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: #fff;
-      }
-      .icici-logo {
-        height: auto;
-        width: 100%;
-      }
-      .private-banking {
-        font-size: 11px;
-        color: #ad8b00;
-        text-align: right;
-        padding: 5px 35px;
-        font-weight: 500;
-        border-bottom: 2px solid #eb781b;
-      }
-      .summary-title {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #000;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #000;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 1200px;
-        font-size: 11px;
-      }
-      th,
-      td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #eee;
-        text-align: right;
-        white-space: nowrap;
-      }
-      th:first-child,
-      td:first-child {
-        text-align: left;
-      }
-      th {
-        background-color: #f8f8f8;
-        color: #999;
-        font-weight: 500;
-      }
       .bold-row {
         font-weight: bold;
         background-color: #fff2f2;
       }
-      .footer-logo {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        height: 80px;
+
+      .bold-row-client {
+        font-weight: bold;
+        background-color: #fff2e8;
       }
     </style>
   </head>
@@ -72,52 +24,56 @@
       alt="ICICI Logo"
     />
     <div class="private-banking">Private Banking</div>
+    <div class="yellow-line"></div>
 
-    <div class="summary-title">Hybrid Mutual Fund Instrument Level Summary</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Scheme Name</th>
-          <th>Folio No.</th>
-          <th>Date of Investment</th>
-          <th>Invested Amount</th>
-          <th>Dividend/Received</th>
-          <th>No. of Units</th>
-          <th>Last Updated NAV</th>
-          <th>Current Market Value</th>
-          <th>Unrealised (Gain/Loss)</th>
-          <th>Realised (Gain/Loss)</th>
-          <th>IRR Since Inception</th>
-          <th>IRR FYTD</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="bold-row">
-          <td colspan="12">{{ client_name }}</td>
-        </tr>
-        <tr class="bold-row">
-          <td colspan="12">Multi Asset Allocation</td>
-        </tr>
+    <div class="container">
+      <div class="title">Hybrid Mutual Fund Instrument Level Summary</div>
+      <div class="black-line"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Scheme Name</th>
+            <th>Folio No.</th>
+            <th>Date of Investment</th>
+            <th>Invested Amount</th>
+            <th>Dividend/Received</th>
+            <th>No. of Units</th>
+            <th>Last Updated NAV</th>
+            <th>Current Market Value</th>
+            <th>Unrealised (Gain/Loss)</th>
+            <th>Realised (Gain/Loss)</th>
+            <th>IRR Since Inception</th>
+            <th>IRR FYTD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bold-row-client">
+            <td colspan="12">{{ client_name }}</td>
+          </tr>
+          <tr class="bold-row">
+            <td colspan="12">Multi Asset Allocation</td>
+          </tr>
 
-        {% for item in multi_asset_allocation %}
-        <tr
-          class="{% if item.scheme_name | lower == 'total' %}bold-row{% endif %}"
-        >
-          <td>{{ item.scheme_name }}</td>
-          <td>{{ item.folio_no }}</td>
-          <td>{{ item.date_of_investment }}</td>
-          <td>{{ item.Invested_amout }}</td>
-          <td>{{ item.devident_or_received }}</td>
-          <td>{{ item.number_of_units }}</td>
-          <td>{{ item.last_updated_NAV }}</td>
-          <td>{{ item.current_market_value }}</td>
-          <td>{{ item.unrealized_gain_or_lose }}</td>
-          <td>{{ item.realized_gain_or_lose }}</td>
-          <td>{{ item.IRR_since_interception }}</td>
-          <td>{{ item.IRR_FYTD }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+          {% for item in multi_asset_allocation %}
+          <tr
+            class="{% if item.scheme_name | lower == 'total' %}bold-row{% endif %}"
+          >
+            <td>{{ item.scheme_name }}</td>
+            <td>{{ item.folio_no }}</td>
+            <td>{{ item.date_of_investment }}</td>
+            <td>{{ item.Invested_amout }}</td>
+            <td>{{ item.devident_or_received }}</td>
+            <td>{{ item.number_of_units }}</td>
+            <td>{{ item.last_updated_NAV }}</td>
+            <td>{{ item.current_market_value }}</td>
+            <td>{{ item.unrealized_gain_or_lose }}</td>
+            <td>{{ item.realized_gain_or_lose }}</td>
+            <td>{{ item.IRR_since_interception }}</td>
+            <td>{{ item.IRR_FYTD }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

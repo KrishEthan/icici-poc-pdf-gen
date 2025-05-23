@@ -4,71 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Debt Analysis</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: #fff;
-      }
-      .icici-logo {
-        height: auto;
-        width: 100%;
-      }
-      .private-banking {
-        font-size: 11px;
-        color: #ad8b00;
-        text-align: right;
-        padding: 6px 35px 0;
-        font-weight: 500;
-      }
-      .yellow-line {
-        border-bottom: 2px solid #ffcc00;
-        width: 100%;
-      }
-      .title {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-      .divider {
-        height: 1.2px;
-        background-color: #000;
-        margin-bottom: 25px;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 11px;
-        min-width: 1000px;
-      }
-      th,
-      td {
-        padding: 10px 12px;
-        text-align: right;
-        border-bottom: 1px solid #eee;
-        white-space: nowrap;
-      }
-      th:first-child,
-      td:first-child {
-        text-align: left;
-      }
-      th {
-        color: #c0c0c0;
-        font-weight: 500;
-        font-size: 11px;
-      }
-      tr.total-row {
-        background: #f0f0f0;
-        font-weight: bold;
-      }
-      .footer-logo {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        height: 70px;
-      }
-    </style>
+    <link rel="stylesheet" href="../style/style.css" />
   </head>
   <body>
     <!-- Header Section -->
@@ -80,35 +16,37 @@
     <div class="private-banking">Private Banking</div>
     <div class="yellow-line"></div>
 
-    <div class="title">Equity Analysis</div>
-    <div class="divider"></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Particulars</th>
-          <th>Holding Cost</th>
-          <th>Current Value</th>
-          <th>Holding%</th>
-          <th>Gain/Loss Realized(₹)</th>
-          <th>Dividend/Interest(₹)</th>
-          <th>Gain/Loss Unrealized(₹)</th>
-          <th>IRR %</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in equity_analysis_response %}
-        <tr>
-          <td>{{ item.particulars }}</td>
-          <td>{{ item.holdings_cost }}</td>
-          <td>{{ item.current_value }}</td>
-          <td>{{ item.holdings }}</td>
-          <td>{{ item.gain_or_lose_realized }}</td>
-          <td>{{ item.devident_or_interest }}</td>
-          <td>{{ item.gain_or_lose_unrealized }}</td>
-          <td>{{ item.irr }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="container">
+      <div class="title">Equity Analysis</div>
+      <div class="black-line"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Particulars</th>
+            <th>Holding Cost</th>
+            <th>Current Value</th>
+            <th>Holding%</th>
+            <th>Gain/Loss Realized(₹)</th>
+            <th>Dividend/Interest(₹)</th>
+            <th>Gain/Loss Unrealized(₹)</th>
+            <th>IRR %</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in equity_analysis_response %}
+          <tr>
+            <td>{{ item.particulars }}</td>
+            <td>{{ item.holdings_cost }}</td>
+            <td>{{ item.current_value }}</td>
+            <td>{{ item.holdings }}</td>
+            <td>{{ item.gain_or_lose_realized }}</td>
+            <td>{{ item.devident_or_interest }}</td>
+            <td>{{ item.gain_or_lose_unrealized }}</td>
+            <td>{{ item.irr }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

@@ -4,75 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Life Insurance</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: #fff;
-      }
-
-      .icici-logo {
-        height: auto;
-        width: 100%;
-      }
-
-      .private-banking {
-        font-size: 11px;
-        color: #ad8b00;
-        text-align: right;
-        padding: 5px 35px;
-        font-weight: 500;
-        border-bottom: 2px solid #eb781b;
-      }
-
-      .summary-title {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #000;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #000;
-      }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        min-width: 1200px;
-        font-size: 11px;
-      }
-
-      th,
-      td {
-        padding: 10px 12px;
-        border-bottom: 1px solid #eee;
-        text-align: right;
-        white-space: nowrap;
-      }
-
-      th:first-child,
-      td:first-child {
-        text-align: left;
-      }
-
-      th {
-        background-color: #f8f8f8;
-        color: #999;
-        font-weight: 500;
-      }
-
-      .bold-row {
-        font-weight: bold;
-        background-color: #fefefe;
-      }
-
-      .footer-logo {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        height: 80px;
-      }
-    </style>
+    <link rel="stylesheet" href="../style/style.css" />
   </head>
   <body>
     <img
@@ -81,33 +13,37 @@
       alt="ICICI Logo"
     />
     <div class="private-banking">Private Banking</div>
+    <div class="yellow-line"></div>
 
-    <div class="summary-title">Life Insurance</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Policy Name</th>
-          <th>Policy Type</th>
-          <th>Premium Due Date</th>
-          <th>Policy No.</th>
-          <th>Premium Amount</th>
-          <th>Sum Assured</th>
-          <th>Valuation</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in policies %}
-        <tr>
-          <td>{{ item.policy_name }}</td>
-          <td>{{ item.policy_type }}</td>
-          <td>{{ item.premimum_due_date }}</td>
-          <td>{{ item.policy_no }}</td>
-          <td>{{ item.premium_account }}</td>
-          <td>{{ item.sum_assured }}</td>
-          <td>{{ item.valuation }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="container">
+      <div class="title">Life Insurance</div>
+      <div class="black-line"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Policy Name</th>
+            <th>Policy Type</th>
+            <th>Premium Due Date</th>
+            <th>Policy No.</th>
+            <th>Premium Amount</th>
+            <th>Sum Assured</th>
+            <th>Valuation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in policies %}
+          <tr>
+            <td>{{ item.policy_name }}</td>
+            <td>{{ item.policy_type }}</td>
+            <td>{{ item.premimum_due_date }}</td>
+            <td>{{ item.policy_no }}</td>
+            <td>{{ item.premium_account }}</td>
+            <td>{{ item.sum_assured }}</td>
+            <td>{{ item.valuation }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
