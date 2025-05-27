@@ -27,4 +27,5 @@ COPY . .
 # Expose port if running a web server (optional)
 EXPOSE 8002
 
-CMD ["python", "main.py"]
+# The command is now specified in docker-compose.yml
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002"]

@@ -10,7 +10,7 @@ from utils import ReportGenerator
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from PyPDF2 import PdfMerger
-from db import get_investment_summary_first_page, get_all_investment_summary_data
+from db import get_all_investment_summary_data
  
 # Create necessary directories
 TEMPLATES_DIR = Path("templates")
@@ -589,10 +589,10 @@ async def generate_investment_summary_report(
         print(f"Error generating merged investment summary report: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
  
-@app.get("/investment-summary-first-page")
+@app.get("/investment-summary")
 def investment_summary_first_page():
     try:
-        data = get_investment_summary_first_page()
+        data = get_all_investment_summary_data()
         return {"data": data}
     except Exception as e:
         print(f"Error fetching investment summary first page: {str(e)}")
