@@ -146,3 +146,8 @@ th {
 .grey {
     color: #999;
 }
+
+.piechartstyle {
+    width: 100%;
+    text-align: center;
+}
