@@ -10,7 +10,7 @@ from utils import ReportGenerator
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from PyPDF2 import PdfMerger
- 
+
 # Create necessary directories
 TEMPLATES_DIR = Path("templates")
 STATIC_DIR = Path("static")
@@ -338,9 +338,14 @@ class AllocationItem(BaseModel):
 
 class TwenteethPageData(BaseModel):
     debt_analysis_response: List[AnalysisItem]
-    
+
+class PieChartData(BaseModel):
+    labels: List[str]
+    values: List[float]
+    colors: Optional[List[str]] = None
 class TwentyOnePageData(BaseModel):
     debt_mutual_fund_allocation_response: List[AllocationItem]
+    debt_mutual_fund_pie_chart: Optional[PieChartData] = None 
 
 class TwentyTwoPageData(BaseModel):
     hybrid_analysis_response: List[AnalysisItem]
@@ -378,7 +383,32 @@ class InvestmentSummaryReportRequest(BaseModel):
     twentythree_page_data: TwentyThreePageData
     twentyfour_page_data: TwentyFourPageData
     twentyfive_page_data: TwentyFivePageData
-    
+
+import matplotlib.pyplot as plt
+import io
+import base64
+
+def create_donut_chart_base64(data, labels):
+    plt.figure(figsize=(6,6))
+    wedges, texts, autotexts = plt.pie(
+        data, 
+        labels=labels, 
+        autopct='%1.1f%%', 
+        startangle=90,
+        wedgeprops=dict(width=0.4)  # This creates the donut effect by making the wedge narrower
+    )
+    plt.title("")
+    plt.tight_layout()
+
+    buf = io.BytesIO()
+    plt.savefig(buf, format="png")
+    plt.close()
+    buf.seek(0)
+
+    img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    return img_base64
+
+
 @app.post("/generate-investment-summary-report")
 async def generate_investment_summary_report(
     data: InvestmentSummaryReportRequest,
@@ -413,9 +443,9 @@ async def generate_investment_summary_report(
         twentyfive_page_filename = f"equity_mutual_fund_allocation_{timestamp}.pdf"
         thank_you_page_filename = f"thank_you_{timestamp}.pdf"
         annexure_page_filename = f"annexure_{timestamp}.pdf"
-        
+        chart_page_filename = f"chart_{timestamp}.pdf"
         merged_filename = f"investment_summary_report.pdf"
- 
+
         loop = asyncio.get_event_loop()
         with ThreadPoolExecutor(max_workers=16) as pool:
             # Generate both PDFs in parallel
@@ -575,7 +605,7 @@ async def generate_investment_summary_report(
             ))
             twentyone_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "debt_mutual_fund_allocation.html",
-                {"debt_mutual_fund_allocation_response": data.twentyone_page_data.debt_mutual_fund_allocation_response},
+                {"debt_mutual_fund_allocation_response": data.twentyone_page_data.debt_mutual_fund_allocation_response, "chart_image_base64":  create_donut_chart_base64(data.twentyone_page_data.debt_mutual_fund_pie_chart.values, data.twentyone_page_data.debt_mutual_fund_pie_chart.labels)},
                 twentyone_page_filename
             ))
             twentytwo_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
@@ -612,8 +642,7 @@ async def generate_investment_summary_report(
                 "annexure.html",
                 {"data": {}},
                 annexure_page_filename
-            ))
-            
+            ))       
        
             money_speak_page_path, intro_page_path, first_page_path, second_page_path, fourth_page_path, third_page_path, six_page_path, eighth_page_path , tenthth_page_path, eleventh_page_path, thirteenth_page_path, fifth_page_path , seventh_page_path, ninth_page_path, twelfth_page_path, fourteenth_page_path, fifteenth_page_path, eighteenth_page_path, nineteenth_page_path, twenteeth_page_path, twentyone_page_path, twentytwo_page_path, twentythree_page_path, twentyfour_page_path, twentyfive_page_path, thank_you_page_path, annexure_page_path = await asyncio.gather(money_speak_page_future,intro_page_future, first_page_future, second_page_future, fourth_page_future, third_page_future, sixth_page_future, eighth_page_future, tenth_page_future, eleventh_page_future, thirteenth_page_future, fifth_page_future, seventh_page_future, ninth_page_future, twelfth_page_future, fourteenth_page_future, fifteenth_page_future, eighteenth_page_future, nineteenth_page_future, twenteeth_page_future, twentyone_page_future, twentytwo_page_future, twentythree_page_future, twentyfour_page_future, twentyfive_page_future, thank_you_page_future, annexure_page_future)
        
@@ -646,7 +675,6 @@ async def generate_investment_summary_report(
         merger.append(str(twentyfour_page_path))
         merger.append(str(twentyfive_page_path))
         merger.append(str(thank_you_page_path))
-
                 
         merged_path = OUTPUT_DIR / merged_filename
         with open(merged_path, "wb") as fout:
