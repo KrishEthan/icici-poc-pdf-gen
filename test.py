@@ -1010,7 +1010,21 @@ investment_summary_payload = {
                 "gain_or_lose_unrealized": "61,739",
                 "xirr": "3.2"
             }
-        ]
+        ],
+             "hybrid_mutual_fund_pie_chart": {
+            "labels": [
+                "Banking PSU",
+                "Corporate Bond"
+            ],
+            "values": [
+                "1179579",
+                "715780"
+            ],
+            "colors": [
+                "#FF6384",
+                "#36A2EB"
+            ]
+        }
     },
     "twentyfour_page_data": {
         "equity_analysis_response": [
@@ -1058,7 +1072,21 @@ investment_summary_payload = {
                 "gain_or_lose_unrealized": "61,739",
                 "xirr": "3.2"
             }
-        ]
+        ],
+            "equity_mutual_fund_pie_chart": {
+            "labels": [
+                "Banking ZYPSU",
+                "Corporate Bond"
+            ],
+            "values": [
+                "1179579",
+                "715780"
+            ],
+            "colors": [
+                "#FF6384",
+                "#36A2EB"
+            ]
+        }
     }
 }
 
