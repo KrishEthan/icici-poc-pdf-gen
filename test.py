@@ -911,33 +911,44 @@ investment_summary_payload = {
             }
         ]
     },
-    "twentyone_page_data": {
-        "debt_mutual_fund_allocation_response": [
-            {
-                "mutual_fund": "Banking and PSU",
-                "holdings_cost": "7,15,780",
-                "current_value": "11,79,579",
-                "holdings": "100",
-                "gain_or_lose_realized": "0",
-                "devident_or_interest": "3.31",
-                "gain_or_lose_unrealized": "4,55,332",
-                "xirr": "55.3"
-            },
-            {
-                "mutual_fund": "Corporate Bond",
-                "holdings_cost": "11,79,579",
-                "current_value": "7,15,780",
-                "holdings": "61,739",
-                "gain_or_lose_realized": "0",
-                "devident_or_interest": "3.55",
-                "gain_or_lose_unrealized": "61,739",
-                "xirr": "3.2"
-            }
-        ]
-    }, 
+   "twentyone_page_data": {
+    "debt_mutual_fund_allocation_response": [
+      {
+        "mutual_fund": "Banking and PSU",
+        "holdings_cost": "7,15,780",
+        "current_value": "11,79,579",
+        "holdings": "100",
+        "gain_or_lose_realized": "0",
+        "devident_or_interest": "3.31",
+        "gain_or_lose_unrealized": "4,55,332",
+        "xirr": "55.3"
+      },
+      {
+        "mutual_fund": "Corporate Bond",
+        "holdings_cost": "11,79,579",
+        "current_value": "7,15,780",
+        "holdings": "61,739",
+        "gain_or_lose_realized": "0",
+        "devident_or_interest": "3.55",
+        "gain_or_lose_unrealized": "61,739",
+        "xirr": "3.2"
+      }
+    ],
+    "debt_mutual_fund_pie_chart": {
+      "labels": [
+        "Amal",
+        "Subham"
+      ],
+      "values": [
+        "1179579",
+        "715780"
+      ],
+      "colors": []
+    }
+  },
     "twentytwo_page_data": {
         "hybrid_analysis_response": [
-             {
+            {
                 "particulars": "Mutual Funds Equity",
                 "holdings_cost": "1000000.0",
                 "current_value": "1050000.0",
@@ -957,7 +968,25 @@ investment_summary_payload = {
                 "gain_or_lose_unrealized": "5000.0",
                 "irr": "6.0"
             }
-        ]
+        ],
+        "chart_data": {
+            "labels": [
+                "Stocks",
+                "Bonds",
+                "Real Estate",
+                "Cash",
+                "Commodities",
+                "Other"
+            ],
+            "values": [
+                10,
+                20,
+                20,
+                5,
+                25,
+                20
+            ]
+        }
     },
     "twentythree_page_data": {
         "hybrid_mutual_fund_allocation_response": [
@@ -982,7 +1011,7 @@ investment_summary_payload = {
                 "xirr": "3.2"
             }
         ]
-    }, 
+    },
     "twentyfour_page_data": {
         "equity_analysis_response": [
             {
