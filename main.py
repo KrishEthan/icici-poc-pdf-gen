@@ -350,15 +350,28 @@ class TwentyOnePageData(BaseModel):
 class TwentyTwoPageData(BaseModel):
     hybrid_analysis_response: List[AnalysisItem]
     
+class PieChartData(BaseModel):
+    labels: List[str]
+    values: List[float]
+    colors: Optional[List[str]] = None
+        
 class TwentyThreePageData(BaseModel):
     hybrid_mutual_fund_allocation_response: List[AllocationItem]
+    hybrid_mutual_fund_pie_chart: Optional[PieChartData] = None
+
 
 class TwentyFourPageData(BaseModel):
     equity_analysis_response: List[AnalysisItem]
 
+class PieChartData(BaseModel):
+    labels: List[str]
+    values: List[float]
+    colors: Optional[List[str]] = None
+    
 class TwentyFivePageData(BaseModel):
     equity_mutual_fund_allocation_response: List[AllocationItem]
-
+    equity_mutual_fund_pie_chart: Optional[PieChartData] = None
+    
 class InvestmentSummaryReportRequest(BaseModel):
     first_page_data: InvestmentSummaryPageData
     second_page_data: InvestmentSummaryPageData
@@ -605,7 +618,9 @@ async def generate_investment_summary_report(
             ))
             twentyone_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "debt_mutual_fund_allocation.html",
-                {"debt_mutual_fund_allocation_response": data.twentyone_page_data.debt_mutual_fund_allocation_response, "chart_image_base64":  create_donut_chart_base64(data.twentyone_page_data.debt_mutual_fund_pie_chart.values, data.twentyone_page_data.debt_mutual_fund_pie_chart.labels)},
+                {"debt_mutual_fund_allocation_response": data.twentyone_page_data.debt_mutual_fund_allocation_response, 
+                 "chart_image_base64":  create_donut_chart_base64(data.twentyone_page_data.debt_mutual_fund_pie_chart.values, 
+                  data.twentyone_page_data.debt_mutual_fund_pie_chart.labels)},
                 twentyone_page_filename
             ))
             twentytwo_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
@@ -616,7 +631,8 @@ async def generate_investment_summary_report(
             
             twentythree_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "hybrid_mutual_fund_allocation.html",
-                {"hybrid_mutual_fund_allocation_response": data.twentythree_page_data.hybrid_mutual_fund_allocation_response},
+                {"hybrid_mutual_fund_allocation_response": data.twentythree_page_data.hybrid_mutual_fund_allocation_response,
+                "chart_image_base64": create_donut_chart_base64(data.twentythree_page_data.hybrid_mutual_fund_pie_chart.values, data.twentyone_page_data.debt_mutual_fund_pie_chart.labels)},
                 twentythree_page_filename
             ))
             
@@ -628,7 +644,8 @@ async def generate_investment_summary_report(
             
             twentyfive_page_future = loop.run_in_executor(pool, lambda: report_generator.generate_pdf(
                 "equity_mutual_fund_allocation.html",
-                {"equity_mutual_fund_allocation_response": data.twentyfive_page_data.equity_mutual_fund_allocation_response},
+                {"equity_mutual_fund_allocation_response": data.twentyfive_page_data.equity_mutual_fund_allocation_response,
+                "chart_image_base64": create_donut_chart_base64(data.twentyfive_page_data.equity_mutual_fund_pie_chart.values, data.twentyfive_page_data.equity_mutual_fund_pie_chart.labels)},
                 twentyfive_page_filename
             ))
 

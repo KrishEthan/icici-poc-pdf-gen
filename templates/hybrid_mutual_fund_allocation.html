@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Debt Analysis</title>
-    <link rel="stylesheet" href="../style/style.css" />
-  </head>
-  <body>
-    {% include 'partials/header.html' %}
 
-    <div class="container">
-      <div class="title">Hybrid Mutual Fund Allocation</div>
-      <div class="black-line"></div>
-      <table>
-        <thead>
-          <tr>
-            <th>Mutual Fund</th>
-            <th>Holding Cost</th>
-            <th>Current Value</th>
-            <th>Holding%</th>
-            <th>Gain/Loss Realized(₹)</th>
-            <th>Dividend/Interest(₹)</th>
-            <th>Gain/Loss Unrealized(₹)</th>
-            <th>XIRR %</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in hybrid_mutual_fund_allocation_response %}
-          <tr>
-            <td>{{ item.mutual_fund }}</td>
-            <td>{{ item.holdings_cost }}</td>
-            <td>{{ item.current_value }}</td>
-            <td>{{ item.holdings }}</td>
-            <td>{{ item.gain_or_lose_realized }}</td>
-            <td>{{ item.devident_or_interest }}</td>
-            <td>{{ item.gain_or_lose_unrealized }}</td>
-            <td>{{ item.xirr }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debt Analysis</title>
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body>
+  {% include 'partials/header.html' %}
+
+  <div class="container">
+    <div class="title">Hybrid Mutual Fund Allocation</div>
+    <div class="black-line"></div>
+
+    <img src="data:image/png;base64,{{ chart_image_base64 }}" alt="Investment Pie Chart"
+      style="width: 400px; height: 400px" />
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mutual Fund</th>
+          <th>Holding Cost</th>
+          <th>Current Value</th>
+          <th>Holding%</th>
+          <th>Gain/Loss Realized(₹)</th>
+          <th>Dividend/Interest(₹)</th>
+          <th>Gain/Loss Unrealized(₹)</th>
+          <th>XIRR %</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in hybrid_mutual_fund_allocation_response %}
+        <tr>
+          <td>{{ item.mutual_fund }}</td>
+          <td>{{ item.holdings_cost }}</td>
+          <td>{{ item.current_value }}</td>
+          <td>{{ item.holdings }}</td>
+          <td>{{ item.gain_or_lose_realized }}</td>
+          <td>{{ item.devident_or_interest }}</td>
+          <td>{{ item.gain_or_lose_unrealized }}</td>
+          <td>{{ item.xirr }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+
 </html>
