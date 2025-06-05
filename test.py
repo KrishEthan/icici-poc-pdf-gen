@@ -209,7 +209,14 @@ investment_summary_payload = {
                     }
                 ]
             }
-        ]
+        ],
+        "total": {
+            "category": "Total",
+            "investment_amount": "4,79,99,950",
+            "holding_cost": "78,20,33,163",
+            "current_value": "57,78,54,862",
+            "irr": "100"
+        }
     },
     "third_page_data": {
         "assets": [
@@ -323,7 +330,7 @@ investment_summary_payload = {
             {
                 "accounts": "1991541 & Krithvek_1991541A Krithvek_1991541",
                 "types": "Short dur",
-                "scheme_name": "Akheeeeeeel",
+                "scheme_name": "debt_mutual_fund_instrument_level_summary",
                 "folio_no": "1049994955224",
                 "date_of_investment": "21-09-12",
                 "invested_amount": "10000",
@@ -338,7 +345,7 @@ investment_summary_payload = {
             {
                 "accounts": "",
                 "types": "Liquid",
-                "scheme_name": "Akheeeeeeel",
+                "scheme_name": "Mirae Asset Cash Management-G",
                 "folio_no": "1049994955224",
                 "date_of_investment": "21-09-12",
                 "invested_amount": "10000",
@@ -378,7 +385,7 @@ investment_summary_payload = {
                 "IRR_FYTD": "16.9"
             },
             {
-                "scheme_name": "Axis Midcap Reg-G",
+                "scheme_name": "ICICI Pru Midcap-G",
                 "folio_no": "3874932749",
                 "date_of_investment": "22-09-21",
                 "Invested_amout": "26,499",
@@ -394,7 +401,7 @@ investment_summary_payload = {
         ],
         "small_cap_fund": [
             {
-                "scheme_name": "Axis Midcap Reg-G",
+                "scheme_name": "Axis Small Cap Reg-G",
                 "folio_no": "3874932749",
                 "date_of_investment": "22-09-21",
                 "Invested_amout": "26,499",
@@ -408,7 +415,7 @@ investment_summary_payload = {
                 "IRR_FYTD": "16.9"
             },
             {
-                "scheme_name": "Axis Midcap Reg-G",
+                "scheme_name": "Quant Small Cap-G",
                 "folio_no": "3874932749",
                 "date_of_investment": "22-09-21",
                 "Invested_amout": "26,499",
@@ -424,7 +431,7 @@ investment_summary_payload = {
         ],
         "large_cap_fund": [
             {
-                "scheme_name": "Axis Midcap Reg-G",
+                "scheme_name": "HDFC Large Cap-G",
                 "folio_no": "3874932749",
                 "date_of_investment": "22-09-21",
                 "Invested_amout": "26,499",
@@ -510,7 +517,7 @@ investment_summary_payload = {
     "ninth_page_data": {
         "summary": [
             {
-                "instument_name": "Equity AIF Fund",
+                "instument_name": "Abakkus Emerging Opportunities Fund 1A1",
                 "fund_name": "Abakkus Emerging Opportunities Fund 1A1",
                 "reference_no": "100043284",
                 "investment_date": "25-Nov-21",
@@ -523,7 +530,7 @@ investment_summary_payload = {
                 "xirr": "32.9"
             },
             {
-                "instument_name": "Equity AIF Fund",
+                "instument_name": "ICICI Pru CompAct Fund Series 2",
                 "fund_name": "Abakkus Emerging Opportunities Fund 1A1",
                 "reference_no": "100043284",
                 "investment_date": "25-Nov-21",
@@ -611,7 +618,7 @@ investment_summary_payload = {
     "twelfth_page_data": {
         "policies": [
             {
-                "policy_name": "ICICI Pru LifeTime Classic",
+                "policy_name": "Housing LaaIICICI PRU SARAL PENSION",
                 "policy_type": "ULIP",
                 "premimum_due_date": "30-Jun-25",
                 "policy_no": "LT123456",
@@ -620,7 +627,7 @@ investment_summary_payload = {
                 "valuation": "12,50,000"
             },
             {
-                "policy_name": "HDFC Life Sanchay Plus",
+                "policy_name": "ICICI Pru-Signature - UW#",
                 "policy_type": "Traditional",
                 "premimum_due_date": "15-Jul-25",
                 "policy_no": "SP987654",
@@ -686,7 +693,7 @@ investment_summary_payload = {
                 "composition": "13,000"
             },
             {
-                "loan_type": "Housing Loan",
+                "loan_type": "Personal Loan",
                 "loan_account": "LBMU345388888258",
                 "loan_amount": "1,50,000",
                 "tenure": "240",
@@ -736,7 +743,7 @@ investment_summary_payload = {
                 "irr_since_interception": "439953",
                 "subcategories": [
                     {
-                        "particulars": "Mutual Funds",
+                        "particulars": "Debt Mutual Funds",
                         "holdings_cost": "4999950",
                         "current_value": "9449950",
                         "holdings": "9449950",
@@ -746,7 +753,7 @@ investment_summary_payload = {
                         "irr_since_interception": "439953"
                     },
                     {
-                        "particulars": "Mutual Funds",
+                        "particulars": "Debts AIF",
                         "holdings_cost": "4999950",
                         "current_value": "9449950",
                         "holdings": "9449950",
@@ -768,7 +775,7 @@ investment_summary_payload = {
                 "irr_since_interception": "439953",
                 "subcategories": [
                     {
-                        "particulars": "Mutual Funds",
+                        "particulars": "Equity Mutual Funds",
                         "holdings_cost": "4999950",
                         "current_value": "9449950",
                         "holdings": "9449950",
@@ -778,7 +785,7 @@ investment_summary_payload = {
                         "irr_since_interception": "439953"
                     },
                     {
-                        "particulars": "Mutual Funds",
+                        "particulars": "Equity AIF",
                         "holdings_cost": "4999950",
                         "current_value": "9449950",
                         "holdings": "9449950",
@@ -800,7 +807,7 @@ investment_summary_payload = {
                 "irr_since_interception": "439953",
                 "subcategories": [
                     {
-                        "particulars": "Mutual Funds",
+                        "particulars": "Hybrid Mutual Funds",
                         "holdings_cost": "4999950",
                         "current_value": "9449950",
                         "holdings": "9449950",
@@ -808,21 +815,11 @@ investment_summary_payload = {
                         "devident_or_interest": "0",
                         "gain_or_lose_unrealized": "0",
                         "irr_since_interception": "439953"
-                    },
-                    {
-                        "particulars": "Mutual Funds",
-                        "holdings_cost": "4999950",
-                        "current_value": "9449950",
-                        "holdings": "9449950",
-                        "gain_or_lose_realized": "0",
-                        "devident_or_interest": "0",
-                        "gain_or_lose_unrealized": "0",
-                        "irr_since_interception": "439953"
-                    }
+                    } 
                 ]
             },
             {
-                "category": "other_alternatives",
+                "category": "Other Alternatives",
                 "holdings_cost": "4999950",
                 "current_value": "9449950",
                 "holdings": "9449950",
@@ -832,17 +829,7 @@ investment_summary_payload = {
                 "irr_since_interception": "439953",
                 "subcategories": [
                     {
-                        "particulars": "Mutual Funds",
-                        "holdings_cost": "4999950",
-                        "current_value": "9449950",
-                        "holdings": "9449950",
-                        "gain_or_lose_realized": "0",
-                        "devident_or_interest": "0",
-                        "gain_or_lose_unrealized": "0",
-                        "irr_since_interception": "439953"
-                    },
-                    {
-                        "particulars": "Mutual Funds",
+                        "particulars": "Fixed Deposits",
                         "holdings_cost": "4999950",
                         "current_value": "9449950",
                         "holdings": "9449950",
@@ -872,16 +859,6 @@ investment_summary_payload = {
                         "devident_or_interest": "0",
                         "gain_or_lose_unrealized": "0",
                         "irr_since_interception": "439953"
-                    },
-                    {
-                        "particulars": "Mutual Funds",
-                        "holdings_cost": "4999950",
-                        "current_value": "9449950",
-                        "holdings": "9449950",
-                        "gain_or_lose_realized": "0",
-                        "devident_or_interest": "0",
-                        "gain_or_lose_unrealized": "0",
-                        "irr_since_interception": "439953"
                     }
                 ]
             }
@@ -890,7 +867,7 @@ investment_summary_payload = {
     "twenteeth_page_data": {
         "debt_analysis_response": [
             {
-                "particulars": "Corporate Bond A",
+                "particulars": "Debt Mutual Funds - WMS",
                 "holdings_cost": "1000000.0",
                 "current_value": "1050000.0",
                 "holdings": "10.0",
@@ -900,7 +877,7 @@ investment_summary_payload = {
                 "irr": "7.5"
             },
             {
-                "particulars": "Government Bond B",
+                "particulars": "Debt AF - WMS",
                 "holdings_cost": "500000",
                 "current_value": "510000.0",
                 "holdings": "5.0",
@@ -911,45 +888,45 @@ investment_summary_payload = {
             }
         ]
     },
-   "twentyone_page_data": {
-    "debt_mutual_fund_allocation_response": [
-      {
-        "mutual_fund": "Banking and PSU",
-        "holdings_cost": "7,15,780",
-        "current_value": "11,79,579",
-        "holdings": "100",
-        "gain_or_lose_realized": "0",
-        "devident_or_interest": "3.31",
-        "gain_or_lose_unrealized": "4,55,332",
-        "xirr": "55.3"
-      },
-      {
-        "mutual_fund": "Corporate Bond",
-        "holdings_cost": "11,79,579",
-        "current_value": "7,15,780",
-        "holdings": "61,739",
-        "gain_or_lose_realized": "0",
-        "devident_or_interest": "3.55",
-        "gain_or_lose_unrealized": "61,739",
-        "xirr": "3.2"
-      }
-    ],
-    "debt_mutual_fund_pie_chart": {
-      "labels": [
-        "Amal",
-        "Subham"
-      ],
-      "values": [
-        "1179579",
-        "715780"
-      ],
-      "colors": []
-    }
-  },
+    "twentyone_page_data": {
+        "debt_mutual_fund_allocation_response": [
+            {
+                "mutual_fund": "Banking and PSU",
+                "holdings_cost": "7,15,780",
+                "current_value": "11,79,579",
+                "holdings": "100",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "3.31",
+                "gain_or_lose_unrealized": "4,55,332",
+                "xirr": "55.3"
+            },
+            {
+                "mutual_fund": "Corporate Bond",
+                "holdings_cost": "11,79,579",
+                "current_value": "7,15,780",
+                "holdings": "61,739",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "3.55",
+                "gain_or_lose_unrealized": "61,739",
+                "xirr": "3.2"
+            }
+        ],
+        "debt_mutual_fund_pie_chart": {
+            "labels": [
+                "Banking PSU",
+                "Corporate Bond"
+            ],
+            "values": [
+                "1179579",
+                "715780"
+            ],
+            "colors": []
+        }
+    },
     "twentytwo_page_data": {
         "hybrid_analysis_response": [
             {
-                "particulars": "Mutual Funds Equity",
+                "particulars": "Equity Mutual Funds - WMS",
                 "holdings_cost": "1000000.0",
                 "current_value": "1050000.0",
                 "holdings": "10.0",
@@ -959,7 +936,7 @@ investment_summary_payload = {
                 "irr": "7.5"
             },
             {
-                "particulars": "Mutual Funds Debt",
+                "particulars": "Equity AIF - WMS",
                 "holdings_cost": "500000",
                 "current_value": "510000.0",
                 "holdings": "5.0",
@@ -991,7 +968,7 @@ investment_summary_payload = {
     "twentythree_page_data": {
         "hybrid_mutual_fund_allocation_response": [
             {
-                "mutual_fund": "Banking and PSU",
+                "mutual_fund": "Fund of Funds",
                 "holdings_cost": "7,15,780",
                 "current_value": "11,79,579",
                 "holdings": "100",
@@ -1001,7 +978,7 @@ investment_summary_payload = {
                 "xirr": "55.3"
             },
             {
-                "mutual_fund": "Corporate Bond",
+                "mutual_fund": "Large Cap Fund",
                 "holdings_cost": "11,79,579",
                 "current_value": "7,15,780",
                 "holdings": "61,739",
@@ -1011,7 +988,7 @@ investment_summary_payload = {
                 "xirr": "3.2"
             }
         ],
-             "hybrid_mutual_fund_pie_chart": {
+        "hybrid_mutual_fund_pie_chart": {
             "labels": [
                 "Banking PSU",
                 "Corporate Bond"
@@ -1029,7 +1006,7 @@ investment_summary_payload = {
     "twentyfour_page_data": {
         "equity_analysis_response": [
             {
-                "particulars": "Mutual Funds Equity",
+                "particulars": "Equity Mutual Funds - WMS",
                 "holdings_cost": "1000000.0",
                 "current_value": "1050000.0",
                 "holdings": "10.0",
@@ -1039,7 +1016,7 @@ investment_summary_payload = {
                 "irr": "7.5"
             },
             {
-                "particulars": "Mutual Funds Debt",
+                "particulars": "Equity AIF - WMS",
                 "holdings_cost": "500000",
                 "current_value": "510000.0",
                 "holdings": "5.0",
@@ -1053,7 +1030,7 @@ investment_summary_payload = {
     "twentyfive_page_data": {
         "equity_mutual_fund_allocation_response": [
             {
-                "mutual_fund": "Banking and PSU",
+                "mutual_fund": "Flexi Cap Fund",
                 "holdings_cost": "7,15,780",
                 "current_value": "11,79,579",
                 "holdings": "100",
@@ -1063,7 +1040,7 @@ investment_summary_payload = {
                 "xirr": "55.3"
             },
             {
-                "mutual_fund": "Corporate Bond",
+                "mutual_fund": "Large Cap Fund",
                 "holdings_cost": "11,79,579",
                 "current_value": "7,15,780",
                 "holdings": "61,739",
@@ -1073,7 +1050,7 @@ investment_summary_payload = {
                 "xirr": "3.2"
             }
         ],
-            "equity_mutual_fund_pie_chart": {
+        "equity_mutual_fund_pie_chart": {
             "labels": [
                 "Banking ZYPSU",
                 "Corporate Bond"
