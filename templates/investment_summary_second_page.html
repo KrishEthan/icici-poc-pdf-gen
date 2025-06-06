@@ -44,7 +44,17 @@
             <td>{{ sub.current_value }}</td>
             <td>{{ sub.irr }}</td>
           </tr>
-          {% endfor %} {% endfor %}
+          {% endfor %} {% endfor %} 
+          
+          {% if total %}
+          <tr class="bold-row">
+            <td>{{ total.particular }}</td>
+            <td>{{ total.investment_amount }}</td>
+            <td>{{ total.holding_cost }}</td>
+            <td>{{ total.current_value }}</td>
+            <td>{{ total.irr }}</td>
+          </tr>
+          {% endif %}
         </tbody>
       </table>
     </div>

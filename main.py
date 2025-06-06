@@ -100,6 +100,7 @@ class InvestmentSummaryPageRow(BaseModel):
    
 class InvestmentSummaryPageData(BaseModel):
     investment_data: List[InvestmentSummaryPageRow]
+    total : Optional [InvestmentSubcategory] = None
  
 class AssetsAndLiabilitiesPageData(BaseModel):
     assets: List[AssetsClass]
@@ -177,8 +178,10 @@ class InvestmenDetail(BaseModel):
     irr_ytd: str
  
 class TotalInvestmenDetail(BaseModel):
+    scheme_name: str
     invested_amount: str
     dividends_received: str
+    no_of_unit: str
     current_market_value: str
     unrealized_gain_loss: str
     irr_since_inception: str
@@ -309,7 +312,6 @@ class InvestmentData(BaseModel):
     devident_or_interest: str
     gain_or_lose_unrealized: str
     irr_since_interception: str
-
     subcategories: List[InvestmentItem]
 
 
@@ -487,7 +489,7 @@ async def generate_investment_summary_report(
                 pool,
                 lambda: report_generator.generate_pdf(
                     "investment_summary_second_page.html",
-                    {"investment_data": data.second_page_data.investment_data},
+                    {"investment_data": data.second_page_data.investment_data, "total": data.second_page_data.total},
                     second_page_filename
                 )
             )

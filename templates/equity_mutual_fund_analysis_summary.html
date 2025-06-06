@@ -27,7 +27,7 @@
         </thead>
         <tbody>
           {% for item in equity_analysis_response %}
-          <tr>
+          <tr class="{% if item.particulars == 'Total' %}bold-row{% endif %}">
             <td>{{ item.particulars }}</td>
             <td>{{ item.holdings_cost }}</td>
             <td>{{ item.current_value }}</td>

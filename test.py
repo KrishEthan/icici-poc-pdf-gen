@@ -210,12 +210,12 @@ investment_summary_payload = {
                 ]
             }
         ],
-        "total": {
-            "category": "Total",
-            "investment_amount": "4,79,99,950",
-            "holding_cost": "78,20,33,163",
-            "current_value": "57,78,54,862",
-            "irr": "100"
+         "total": {
+            "particular": "Total Assets",
+            "investment_amount": "9,99,9500",
+            "holding_cost": "9,9500",
+            "current_value": "6,9577",
+            "irr": "9,99,9500"
         }
     },
     "third_page_data": {
@@ -311,16 +311,16 @@ investment_summary_payload = {
             "loans": [
                 {
                     "particular": "Loans",
-                    "loan_amount": "332423xxx",
-                    "emi": "xxxxx",
+                    "loan_amount": "332423",
+                    "emi": "8745",
                     "outstanding": "324234",
-                    "maximum_tenure": "xxxx"
+                    "maximum_tenure": "534732"
                 }
             ]
         },
         "bank_balance": [
             {
-                "particular": "xxx",
+                "particular": "7683",
                 "current_value": "098403"
             }
         ]
@@ -359,8 +359,10 @@ investment_summary_payload = {
             }
         ],
         "total_investment": {
+            "scheme_name": "Total",
             "invested_amount": "3256648",
-            "dividends_received": "1850.1",
+            "dividends_received": "67634",
+            "no_of_unit": "0",
             "current_market_value": "45_12_750",
             "unrealized_gain_loss": "12_56_102",
             "irr_since_inception": "-0.1",
@@ -606,7 +608,7 @@ investment_summary_payload = {
             "investment_amont": "4532342"
         },
         {
-            "fund_name": "Total Inv",
+            "fund_name": "Total",
             "asset_class": "267832",
             "ISIN": "1.0",
             "reference_no": "0",
@@ -885,6 +887,16 @@ investment_summary_payload = {
                 "devident_or_interest": "15000.0",
                 "gain_or_lose_unrealized": "5000.0",
                 "irr": "6.0"
+            },
+              {
+                "particulars": "Total",
+                "holdings_cost": "500000",
+                "current_value": "510000.0",
+                "holdings": "5.0",
+                "gain_or_lose_realized": "10000.0",
+                "devident_or_interest": "15000.0",
+                "gain_or_lose_unrealized": "5000.0",
+                "irr": "6.0"
             }
         ]
     },
@@ -944,6 +956,16 @@ investment_summary_payload = {
                 "devident_or_interest": "15000.0",
                 "gain_or_lose_unrealized": "5000.0",
                 "irr": "6.0"
+            },
+            {
+                "particulars": "Total",
+                "holdings_cost": "500000",
+                "current_value": "510000.0",
+                "holdings": "5.0",
+                "gain_or_lose_realized": "10000.0",
+                "devident_or_interest": "15000.0",
+                "gain_or_lose_unrealized": "5000.0",
+                "irr": "6.0"
             }
         ],
         "chart_data": {
@@ -979,6 +1001,16 @@ investment_summary_payload = {
             },
             {
                 "mutual_fund": "Large Cap Fund",
+                "holdings_cost": "11,79,579",
+                "current_value": "7,15,780",
+                "holdings": "61,739",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "3.55",
+                "gain_or_lose_unrealized": "61,739",
+                "xirr": "3.2"
+            },
+            {
+                "mutual_fund": "Total",
                 "holdings_cost": "11,79,579",
                 "current_value": "7,15,780",
                 "holdings": "61,739",
@@ -1024,6 +1056,16 @@ investment_summary_payload = {
                 "devident_or_interest": "15000.0",
                 "gain_or_lose_unrealized": "5000.0",
                 "irr": "6.0"
+            },
+             {
+                "particulars": "Total",
+                "holdings_cost": "500000",
+                "current_value": "510000.0",
+                "holdings": "5.0",
+                "gain_or_lose_realized": "10000.0",
+                "devident_or_interest": "15000.0",
+                "gain_or_lose_unrealized": "5000.0",
+                "irr": "6.0"
             }
         ]
     },
@@ -1041,6 +1083,16 @@ investment_summary_payload = {
             },
             {
                 "mutual_fund": "Large Cap Fund",
+                "holdings_cost": "11,79,579",
+                "current_value": "7,15,780",
+                "holdings": "61,739",
+                "gain_or_lose_realized": "0",
+                "devident_or_interest": "3.55",
+                "gain_or_lose_unrealized": "61,739",
+                "xirr": "3.2"
+            },
+            {
+                "mutual_fund": "Total",
                 "holdings_cost": "11,79,579",
                 "current_value": "7,15,780",
                 "holdings": "61,739",

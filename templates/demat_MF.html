@@ -26,7 +26,7 @@
         </thead>
         <tbody>
           {% for row in data %}
-          <tr>
+          <tr class="{% if row.fund_name == 'Total' %}bold-row{% endif %}">
             <td>{{ row.fund_name or '' }}</td>
             <td>{{ row.asset_class or '' }}</td>
             <td>{{ row.ISIN or '' }}</td>

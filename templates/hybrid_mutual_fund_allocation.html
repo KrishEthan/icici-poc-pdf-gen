@@ -37,7 +37,7 @@
         </thead>
         <tbody>
           {% for item in hybrid_mutual_fund_allocation_response %}
-          <tr>
+          <tr class="{% if item.mutual_fund == 'Total' %}bold-row{% endif %}">
             <td>{{ item.mutual_fund }}</td>
             <td>{{ item.holdings_cost }}</td>
             <td>{{ item.current_value }}</td>

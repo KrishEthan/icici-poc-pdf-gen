@@ -24,7 +24,7 @@
         </thead>
         <tbody>
           {% for row in data %}
-          <tr>
+          <tr class="{% if row.account_holder_name == 'Total' %}bold-row{% endif %}">
             <td>{{ row.account_holder_name or '' }}</td>
             <td>{{ row.balance_as_on or '' }}</td>
             <td>{{ row.account_number or '' }}</td>

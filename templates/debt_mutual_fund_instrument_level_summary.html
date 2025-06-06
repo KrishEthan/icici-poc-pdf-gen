@@ -53,7 +53,7 @@
           {% set previous_type = row.types %} {% endif %}
 
           <tr
-            class="{% if row.particular == 'Total Assets' %}total-row{% endif %}"
+            class="{% if row.scheme_name == 'Total Assets' %}total-row{% endif %}"
           >
             <td>{{ row.scheme_name }}</td>
             <td>{{ row.folio_no or '' }}</td>
@@ -69,7 +69,22 @@
             <td>{{ row.irr_ytd or '' }}</td>
           </tr>
 
-          {% endfor %}
+          {% endfor %} {% if total_investment %}
+          <tr class="bold-row">
+            <td>{{ total_investment.scheme_name }}</td>
+            <td></td>
+            <td></td>
+            <td>{{ total_investment.invested_amount }}</td>
+            <td>{{ total_investment.no_of_unit }}</td>
+            <td>{{ total_investment.dividends_received or '' }}</td>
+            <td></td>
+            <td>{{ total_investment.current_market_value or '' }}</td>
+            <td>{{ total_investment.unrealized_gain_loss or '' }}</td>
+            <td>{{ total_investment.dividends_received or '' }}</td>
+            <td>{{ total_investment.irr_since_inception or '' }}</td>
+            <td>{{ total_investment.irr_ytd or '' }}</td>
+          </tr>
+          {% endif %}
         </tbody>
       </table>
     </div>
