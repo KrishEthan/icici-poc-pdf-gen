@@ -11,42 +11,42 @@ investment_summary_payload = {
                 "investment_amount": "69,99,950",
                 "holding_cost": "49,99,950",
                 "current_value": "94,49,950",
-                "irr": "4,39,953",
+                "irr": "88.99",
                 "subcategories": [
                     {
                         "particular": "Mutual Funds",
                         "investment_amount": "9,61,739",
                         "holding_cost": "9,99,950",
                         "current_value": "9,950",
-                        "irr": "9,61,739"
+                        "irr": "-99.00"
                     },
                     {
                         "particular": "PMS",
                         "investment_amount": "9,950",
                         "holding_cost": "9,99,950",
                         "current_value": "61,739",
-                        "irr": "9,99,950"
+                        "irr": "-93.82"
                     },
                     {
                         "particular": "Demat Bonds & NCD's",
                         "investment_amount": "9,61,739",
                         "holding_cost": "9,99,950",
                         "current_value": "9,950",
-                        "irr": "9,61,739"
+                        "irr": "-99.00"
                     },
                     {
                         "particular": "Fixed Deposits",
                         "investment_amount": "9,99,950",
                         "holding_cost": "1,739",
                         "current_value": "9,99,950",
-                        "irr": "9,99,950"
+                        "irr": "57499.13"
                     },
                     {
                         "particular": "Demat Mutual Funds",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "-30.10"
                     }
                 ]
             },
@@ -55,42 +55,42 @@ investment_summary_payload = {
                 "investment_amount": "12,39,61,739",
                 "holding_cost": "21,26,58,400",
                 "current_value": "28,97,94,962",
-                "irr": "18.35",
+                "irr": "36.26",
                 "subcategories": [
                     {
                         "particular": "Mutual Funds",
                         "investment_amount": "9,61,739",
                         "holding_cost": "9,99,950",
                         "current_value": "9,950",
-                        "irr": "9,61,739"
+                        "irr": "-99.00"
                     },
                     {
                         "particular": "PMS",
                         "investment_amount": "9,950",
                         "holding_cost": "9,99,950",
                         "current_value": "61,739",
-                        "irr": "9,99,950"
+                        "irr": "-93.82"
                     },
                     {
                         "particular": "Cat3 AIF",
                         "investment_amount": "9,61,739",
                         "holding_cost": "9,99,950",
                         "current_value": "9,950",
-                        "irr": "9,61,739"
+                        "irr": "-99.00"
                     },
                     {
                         "particular": "Direct Equity",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "-30.10"
                     },
                     {
                         "particular": "Demat Mutual Funds",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "-30.10"
                     }
                 ]
             },
@@ -99,35 +99,35 @@ investment_summary_payload = {
                 "investment_amount": "9,99,950",
                 "holding_cost": "9,950",
                 "current_value": "6,957",
-                "irr": "9,99,950",
+                "irr": "-30.10",
                 "subcategories": [
                     {
                         "particular": "Mutual Funds",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "-30.10"
                     },
                     {
                         "particular": "PMS",
                         "investment_amount": "9,950",
                         "holding_cost": "9,99,950",
                         "current_value": "61,739",
-                        "irr": "9,99,950"
+                        "irr": "-93.82"
                     },
                     {
                         "particular": "Cat3 AIF",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "-30.10"
                     },
                     {
                         "particular": "Demat Mutual Funds",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "-30.10"
                     }
                 ]
             }
@@ -140,28 +140,28 @@ investment_summary_payload = {
                 "investment_amount": "4,79,99,950",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100",
+                "irr": "81.00",
                 "subcategories": [
                     {
                         "particular": "Cat 1 AIF",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "10.00"
                     },
                     {
                         "particular": "Cat 2 AIF",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "61.00"
                     },
                     {
                         "particular": "REITs/INVIT's",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "34.00"
                     }
                 ]
             },
@@ -170,42 +170,42 @@ investment_summary_payload = {
                 "investment_amount": "9,99,950",
                 "holding_cost": "9,950",
                 "current_value": "6,957",
-                "irr": "9,99,950",
+                "irr": "93.00",
                 "subcategories": [
                     {
                         "particular": "Gold SGB",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "75.00"
                     },
                     {
                         "particular": "Gold Mutual Funds (Index Funds)",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "90.00"
                     },
                     {
                         "particular": "Gold ETF (Demat)",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "12.00"
                     },
                     {
                         "particular": "Silver Mutual Funds (Index Funds)",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "21.00"
                     },
                     {
                         "particular": "Silver ETF (Demat)",
                         "investment_amount": "9,99,950",
                         "holding_cost": "9,950",
                         "current_value": "6,957",
-                        "irr": "9,99,950"
+                        "irr": "56.00"
                     }
                 ]
             }
@@ -215,7 +215,7 @@ investment_summary_payload = {
             "investment_amount": "9,99,9500",
             "holding_cost": "9,9500",
             "current_value": "6,9577",
-            "irr": "9,99,9500"
+            "irr": "76.00"
         }
     },
     "third_page_data": {
@@ -224,55 +224,55 @@ investment_summary_payload = {
                 "particular": "Equity",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "10.00"
             },
             {
                 "particular": "Hybrid",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "32.00"
             },
             {
                 "particular": "ULIP",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "18.34"
             },
             {
                 "particular": "Assets",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "72.5"
             },
             {
                 "particular": "Bank Balance &Deposits",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "54.86"
             },
             {
                 "particular": "Direct Equity",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "15.87"
             },
             {
                 "particular": "Demat MF",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "19.99"
             },
             {
                 "particular": "Demat Bond",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "100"
+                "irr": "36.00"
             },
             {
                 "particular": "Total Assets",
                 "holding_cost": "78,20,33,163",
                 "current_value": "57,78,54,862",
-                "irr": "50"
+                "irr": "50.90"
             }
         ],
         "liabilities": [
@@ -1511,13 +1511,6 @@ investment_summary_payload = {
     },
     "thirteenth_page_data": [
         {
-            "account_holder_name": "TARA GOPINATH",
-            "balance_as_on": "86,87,870",
-            "account_number": "345388888258",
-            "account_type": "savings",
-            "balance": "0"
-        },
-        {
             "account_holder_name": "RAHUL MEHTA",
             "balance_as_on": "12,45,300",
             "account_number": "345388888259",
@@ -1553,62 +1546,6 @@ investment_summary_payload = {
             "balance": "9,000"
         },
         {
-            "account_holder_name": "KAVITA JAIN",
-            "balance_as_on": "3,45,678",
-            "account_number": "345388888264",
-            "account_type": "savings",
-            "balance": "0"
-        },
-        {
-            "account_holder_name": "ROHIT MALHOTRA",
-            "balance_as_on": "2,34,567",
-            "account_number": "345388888265",
-            "account_type": "current",
-            "balance": "3,000"
-        },
-        {
-            "account_holder_name": "SNEHA DESAI",
-            "balance_as_on": "4,56,789",
-            "account_number": "345388888266",
-            "account_type": "savings",
-            "balance": "6,000"
-        },
-        {
-            "account_holder_name": "DEEPAK RANA",
-            "balance_as_on": "7,89,000",
-            "account_number": "345388888267",
-            "account_type": "current",
-            "balance": "4,500"
-        },
-        {
-            "account_holder_name": "MEENA JOSHI",
-            "balance_as_on": "6,78,900",
-            "account_number": "345388888268",
-            "account_type": "savings",
-            "balance": "7,000"
-        },
-        {
-            "account_holder_name": "ARUN GUPTA",
-            "balance_as_on": "9,99,999",
-            "account_number": "345388888269",
-            "account_type": "current",
-            "balance": "10,000"
-        },
-        {
-            "account_holder_name": "RITU KAPOOR",
-            "balance_as_on": "3,21,000",
-            "account_number": "345388888270",
-            "account_type": "savings",
-            "balance": "2,500"
-        },
-        {
-            "account_holder_name": "MANISH SINGH",
-            "balance_as_on": "8,88,888",
-            "account_number": "345388888271",
-            "account_type": "current",
-            "balance": "6,800"
-        },
-        {
             "account_holder_name": "DIVYA NAIK",
             "balance_as_on": "1,11,111",
             "account_number": "345388888272",
@@ -1616,25 +1553,32 @@ investment_summary_payload = {
             "balance": "900"
         },
         {
-            "account_holder_name": "SANDEEP KAUR",
-            "balance_as_on": "7,65,430",
-            "account_number": "345388888273",
+            "account_holder_name": "AMIT KUMAR",
+            "balance_as_on": "3,21,500",
+            "account_number": "345388888301",
+            "account_type": "savings",
+            "balance": "4,000"
+        },
+        {
+            "account_holder_name": "NEHA VERMA",
+            "balance_as_on": "4,50,000",
+            "account_number": "345388888302",
             "account_type": "current",
-            "balance": "5,400"
+            "balance": "7,500"
         },
         {
-            "account_holder_name": "ANIL THAKUR",
-            "balance_as_on": "5,43,210",
-            "account_number": "345388888274",
+            "account_holder_name": "RAHUL MEHTA",
+            "balance_as_on": "6,78,900",
+            "account_number": "345388888303",
             "account_type": "savings",
-            "balance": "2,200"
+            "balance": "3,200"
         },
         {
-            "account_holder_name": "Total",
-            "balance_as_on": "86,87,870",
-            "account_number": "345388888258",
-            "account_type": "savings",
-            "balance": "0"
+            "account_holder_name": "DIVYA NAIK",
+            "balance_as_on": "2,22,222",
+            "account_number": "345388888304",
+            "account_type": "current",
+            "balance": "1,100"
         }
     ],
     "fourteenth_page_data": {
@@ -1658,16 +1602,6 @@ investment_summary_payload = {
                 "available_credit_limit": "1,50,000",
                 "minimum_amount_due": "5,000",
                 "total_amount_due": "20,000"
-            },
-            {
-                "card_type": "Visa Platinum",
-                "payment_due_date": "05-Mar-24",
-                "credit_card_number": "4000123412345678",
-                "credit_limit": "1,50,000",
-                "cash_limit": "30,000",
-                "available_credit_limit": "1,10,000",
-                "minimum_amount_due": "4,000",
-                "total_amount_due": "18,000"
             },
             {
                 "card_type": "Mastercard World Elite",
@@ -1698,106 +1632,6 @@ investment_summary_payload = {
                 "available_credit_limit": "1,10,000",
                 "minimum_amount_due": "3,500",
                 "total_amount_due": "13,000"
-            },
-            {
-                "card_type": "HDFC Regalia Credit Card",
-                "payment_due_date": "11-Feb-24",
-                "credit_card_number": "4315812345678901",
-                "credit_limit": "2,00,000",
-                "cash_limit": "40,000",
-                "available_credit_limit": "1,45,000",
-                "minimum_amount_due": "6,000",
-                "total_amount_due": "22,000"
-            },
-            {
-                "card_type": "SBI SimplySAVE Credit Card",
-                "payment_due_date": "22-Feb-24",
-                "credit_card_number": "5106754321987654",
-                "credit_limit": "1,00,000",
-                "cash_limit": "20,000",
-                "available_credit_limit": "70,000",
-                "minimum_amount_due": "2,200",
-                "total_amount_due": "9,000"
-            },
-            {
-                "card_type": "Axis Bank Flipkart Credit Card",
-                "payment_due_date": "15-Mar-24",
-                "credit_card_number": "4074788888777711",
-                "credit_limit": "1,20,000",
-                "cash_limit": "10,000",
-                "available_credit_limit": "90,000",
-                "minimum_amount_due": "3,500",
-                "total_amount_due": "10,500"
-            },
-            {
-                "card_type": "ICICI Coral Credit Card",
-                "payment_due_date": "19-Mar-24",
-                "credit_card_number": "4000123412341234",
-                "credit_limit": "1,30,000",
-                "cash_limit": "15,000",
-                "available_credit_limit": "95,000",
-                "minimum_amount_due": "4,200",
-                "total_amount_due": "16,800"
-            },
-            {
-                "card_type": "American Express Platinum Travel Card",
-                "payment_due_date": "03-Mar-24",
-                "credit_card_number": "376455556666777",
-                "credit_limit": "3,00,000",
-                "cash_limit": "0",
-                "available_credit_limit": "2,60,000",
-                "minimum_amount_due": "9,500",
-                "total_amount_due": "38,000"
-            },
-            {
-                "card_type": "Kotak Royale Signature Card",
-                "payment_due_date": "13-Mar-24",
-                "credit_card_number": "5400123411112233",
-                "credit_limit": "1,50,000",
-                "cash_limit": "30,000",
-                "available_credit_limit": "1,10,000",
-                "minimum_amount_due": "3,900",
-                "total_amount_due": "15,600"
-            },
-            {
-                "card_type": "HSBC Cashback Credit Card",
-                "payment_due_date": "25-Feb-24",
-                "credit_card_number": "5326255555558888",
-                "credit_limit": "90,000",
-                "cash_limit": "10,000",
-                "available_credit_limit": "65,000",
-                "minimum_amount_due": "1,700",
-                "total_amount_due": "6,800"
-            },
-            {
-                "card_type": "Standard Chartered Platinum Card",
-                "payment_due_date": "11-Mar-24",
-                "credit_card_number": "5209999999995555",
-                "credit_limit": "1,80,000",
-                "cash_limit": "35,000",
-                "available_credit_limit": "1,45,000",
-                "minimum_amount_due": "3,000",
-                "total_amount_due": "12,000"
-            },
-            {
-                "card_type": "YES Prosperity Rewards Plus Card",
-                "payment_due_date": "14-Mar-24",
-                "credit_card_number": "4581234567891011",
-                "credit_limit": "1,20,000",
-                "cash_limit": "25,000",
-                "available_credit_limit": "1,00,000",
-                "minimum_amount_due": "2,800",
-                "total_amount_due": "9,600"
-            },
-            {
-                "card_type": "RBL Platinum Maxima Card",
-                "payment_due_date": "20-Feb-24",
-                "credit_card_number": "5454321098765432",
-                "credit_limit": "1,10,000",
-                "cash_limit": "20,000",
-                "available_credit_limit": "80,000",
-                "minimum_amount_due": "3,300",
-                "total_amount_due": "13,200"
             }
         ],
         "total": {
@@ -1848,136 +1682,6 @@ investment_summary_payload = {
                 "outstanding": "36,80,000",
                 "EMI": "29,000",
                 "composition": "21,500 Principal + 7,500 Interest"
-            },
-            {
-                "loan_type": "Personal Loan",
-                "loan_account": "PLAC123654789321",
-                "loan_amount": "2,00,000",
-                "tenure": "48",
-                "maturity": "05-May-26",
-                "outstanding": "1,40,000",
-                "EMI": "5,500",
-                "composition": "4,200 Principal + 1,300 Interest"
-            },
-            {
-                "loan_type": "Car Loan",
-                "loan_account": "CLMU098765432123",
-                "loan_amount": "5,00,000",
-                "tenure": "60",
-                "maturity": "01-Mar-29",
-                "outstanding": "3,90,000",
-                "EMI": "9,000",
-                "composition": "6,500 Principal + 2,500 Interest"
-            },
-            {
-                "loan_type": "Home Loan",
-                "loan_account": "HLAC987654321000",
-                "loan_amount": "32,00,000",
-                "tenure": "240",
-                "maturity": "17-Jan-38",
-                "outstanding": "26,40,000",
-                "EMI": "24,000",
-                "composition": "18,000 Principal + 6,000 Interest"
-            },
-            {
-                "loan_type": "Personal Loan",
-                "loan_account": "PLAC999888777666",
-                "loan_amount": "1,75,000",
-                "tenure": "36",
-                "maturity": "18-Apr-25",
-                "outstanding": "60,000",
-                "EMI": "5,200",
-                "composition": "4,300 Principal + 900 Interest"
-            },
-            {
-                "loan_type": "Car Loan",
-                "loan_account": "CLAC222333444555",
-                "loan_amount": "9,00,000",
-                "tenure": "72",
-                "maturity": "30-Sep-30",
-                "outstanding": "7,20,000",
-                "EMI": "14,200",
-                "composition": "11,000 Principal + 3,200 Interest"
-            },
-            {
-                "loan_type": "Home Loan",
-                "loan_account": "HLMU111222333444",
-                "loan_amount": "20,00,000",
-                "tenure": "180",
-                "maturity": "12-Dec-37",
-                "outstanding": "15,00,000",
-                "EMI": "17,000",
-                "composition": "13,500 Principal + 3,500 Interest"
-            },
-            {
-                "loan_type": "Personal Loan",
-                "loan_account": "PLMU888777666555",
-                "loan_amount": "2,50,000",
-                "tenure": "60",
-                "maturity": "20-Jan-28",
-                "outstanding": "1,25,000",
-                "EMI": "6,000",
-                "composition": "4,800 Principal + 1,200 Interest"
-            },
-            {
-                "loan_type": "Car Loan",
-                "loan_account": "CLMU333444555666",
-                "loan_amount": "6,00,000",
-                "tenure": "60",
-                "maturity": "01-Jul-28",
-                "outstanding": "4,80,000",
-                "EMI": "11,000",
-                "composition": "8,300 Principal + 2,700 Interest"
-            },
-            {
-                "loan_type": "Home Loan",
-                "loan_account": "HLAC555666777888",
-                "loan_amount": "50,00,000",
-                "tenure": "360",
-                "maturity": "01-Jan-50",
-                "outstanding": "46,00,000",
-                "EMI": "35,000",
-                "composition": "25,000 Principal + 10,000 Interest"
-            },
-            {
-                "loan_type": "Personal Loan",
-                "loan_account": "PLAC444555666777",
-                "loan_amount": "1,20,000",
-                "tenure": "24",
-                "maturity": "15-Aug-25",
-                "outstanding": "55,000",
-                "EMI": "5,000",
-                "composition": "3,600 Principal + 1,400 Interest"
-            },
-            {
-                "loan_type": "Car Loan",
-                "loan_account": "CLAC777888999000",
-                "loan_amount": "8,50,000",
-                "tenure": "84",
-                "maturity": "15-Sep-31",
-                "outstanding": "6,40,000",
-                "EMI": "13,500",
-                "composition": "10,000 Principal + 3,500 Interest"
-            },
-            {
-                "loan_type": "Home Loan",
-                "loan_account": "HLMU321654987321",
-                "loan_amount": "28,00,000",
-                "tenure": "240",
-                "maturity": "01-Apr-41",
-                "outstanding": "23,00,000",
-                "EMI": "22,500",
-                "composition": "17,000 Principal + 5,500 Interest"
-            },
-            {
-                "loan_type": "Car Loan",
-                "loan_account": "CLMU654987321123",
-                "loan_amount": "4,00,000",
-                "tenure": "48",
-                "maturity": "15-Jun-27",
-                "outstanding": "2,60,000",
-                "EMI": "8,000",
-                "composition": "6,300 Principal + 1,700 Interest"
             }
         ],
         "total": {
@@ -1989,7 +1693,7 @@ investment_summary_payload = {
     },
     "eighteenth_page_data": [
         {
-            "name": "NEHA S MEHTA",
+            "name": "NEHA VERMA",
             "risk_profile": "Conservative",
             "current_value": "1547527",
             "investment_value": "1300760",
@@ -2007,7 +1711,7 @@ investment_summary_payload = {
             }
         },
         {
-            "name": "RAHUL D GUPTA",
+            "name": "RAHUL MEHTA",
             "risk_profile": "Aggressive",
             "current_value": "809369",
             "investment_value": "625517",
@@ -2025,7 +1729,7 @@ investment_summary_payload = {
             }
         },
         {
-            "name": "DIVYA R SHAH",
+            "name": "DIVYA NAIK",
             "risk_profile": "Conservative",
             "current_value": "673443",
             "investment_value": "759308",
@@ -2043,7 +1747,7 @@ investment_summary_payload = {
             }
         },
         {
-            "name": "AMIT R JOSHI",
+            "name": "AMIT KUMAR",
             "risk_profile": "Aggressive",
             "current_value": "1336971",
             "investment_value": "917695",
@@ -2061,7 +1765,7 @@ investment_summary_payload = {
             }
         },
         {
-            "name": "PRIYA K VERMA",
+            "name": "PRIYA SHARMA",
             "risk_profile": "Aggressive",
             "current_value": "1761388",
             "investment_value": "1647080",
@@ -2079,48 +1783,12 @@ investment_summary_payload = {
             }
         },
         {
-            "name": "SANJAY L YADAV",
+            "name": "VIKAS YADAV",
             "risk_profile": "Aggressive",
             "current_value": "1343101",
             "investment_value": "1534649",
             "weightage": "100",
             "total_gain_loss": "-191548",
-            "current_asset_allocation": {
-                "debt": "10",
-                "equity": "70",
-                "others": "20"
-            },
-            "target_asset_allocation": {
-                "debt": "10",
-                "equity": "70",
-                "others": "20"
-            }
-        },
-        {
-            "name": "ARJUN V IYER",
-            "risk_profile": "Moderate",
-            "current_value": "931908",
-            "investment_value": "555670",
-            "weightage": "100",
-            "total_gain_loss": "376238",
-            "current_asset_allocation": {
-                "debt": "40",
-                "equity": "40",
-                "others": "20"
-            },
-            "target_asset_allocation": {
-                "debt": "40",
-                "equity": "40",
-                "others": "20"
-            }
-        },
-        {
-            "name": "SNEHA A CHOPRA",
-            "risk_profile": "Aggressive",
-            "current_value": "958450",
-            "investment_value": "1131776",
-            "weightage": "100",
-            "total_gain_loss": "-173326",
             "current_asset_allocation": {
                 "debt": "10",
                 "equity": "70",
@@ -2546,12 +2214,14 @@ investment_summary_payload = {
         ],
         "debt_mutual_fund_pie_chart": {
             "labels": [
-                "Banking PSU",
-                "Corporate Bond"
+                "Banking and PSU",
+                "Corporate Bond",
+                "Equity Large Cap"
             ],
             "values": [
                 "1179579",
-                "715780"
+                "715780",
+                "8736482"
             ],
             "colors": []
         }
@@ -2793,17 +2463,16 @@ investment_summary_payload = {
         ],
         "hybrid_mutual_fund_pie_chart": {
             "labels": [
-                "Banking PSU",
-                "Corporate Bond"
+                "Large Cap Fund",
+                "Mid Cap Fund",
+                "Small Cap Fund"
             ],
             "values": [
                 "1179579",
-                "715780"
+                "715780",
+                "320065"
             ],
-            "colors": [
-                "#FF6384",
-                "#36A2EB"
-            ]
+            "colors": []
         }
     },
     "twentyfour_page_data": {
@@ -3035,17 +2704,16 @@ investment_summary_payload = {
         ],
         "equity_mutual_fund_pie_chart": {
             "labels": [
-                "Banking ZYPSU",
-                "Corporate Bond"
+                "Flexi Cap Fund",
+                "Large Cap Fund",
+                "Mid Cap Fund"
             ],
             "values": [
                 "1179579",
-                "715780"
+                "715780",
+                "532000"
             ],
-            "colors": [
-                "#FF6384",
-                "#36A2EB"
-            ]
+            "colors": []
         }
     }
 }
